@@ -1,7 +1,7 @@
 package annexe2;
 /**
- * @author Kathy Sierra, Bert Bates : "Java T�te la Premi�re" 
- * Mise en forme des commentaires Fran�oise PERRIN
+ * @author Kathy Sierra, Bert Bates : "Java Tete la Premiere" 
+ * Mise en forme des commentaires Franeoise PERRIN
  */
 
 import java.rmi.*;
@@ -12,8 +12,8 @@ import java.rmi.registry.LocateRegistry;
 
 /*
  * Pour pouvoir fonctionner comme service distant, 
- * votre objet doit �tendre "UnicastRemoteObject"
- * et impl�menter votre interface distante
+ * votre objet doit etendre "UnicastRemoteObject"
+ * et implementer votre interface distante
  */
 public class ServeurServicesImpl extends UnicastRemoteObject implements ServeurServices  {
 
@@ -23,23 +23,23 @@ public class ServeurServicesImpl extends UnicastRemoteObject implements ServeurS
 
 
     public ServeurServicesImpl() throws RemoteException {
-       //installer et d�marrer les services
+       //installer et demarrer les services
        installerServices();
     }
 
     private void installerServices() {
        listeServices = new HashMap<String, Service>();
        /*  ------  Autres services possibles    --------
-       listeServices.put("Jouer aux d�s", new ServiceDes());
+       listeServices.put("Jouer aux des", new ServiceDes());
        listeServices.put("Quel jour ?", new ServiceQuelJour());
        */
-       listeServices.put("Vid�o musique", new ServiceMusique());
+       listeServices.put("Video musique", new ServiceMusique());
     }
 
 
 
     public Object[] getListeServices() {
-       System.out.println("� distance");
+       System.out.println("e distance");
        return listeServices.keySet().toArray();
 
     }
@@ -60,20 +60,20 @@ public class ServeurServicesImpl extends UnicastRemoteObject implements ServeurS
             LocateRegistry.createRegistry(1099);
             System.out.println("Le RMI registry est pret.");
             } catch (Exception e) {
-            System.out.println("Le RMI registry n'a pas d�mmar� correctement.");
+            System.out.println("Le RMI registry n'a pas demmare correctement.");
             }
         /*
          * Il faut enregistrer le service (le lier au registre RMI) : 
-         * c'est en r�alit� la souche que RMI place dans le registre
+         * c'est en realite la souche que RMI place dans le registre
          * puisque c'est d'elle dont les clients ont vraiment besoin.
          * Donner au service un nom permettra aux clients de le chercher dans le registre
-         * le registre doit d�j� s'ex�cuter sinon cette ligne �choue "Naming.rebind..."
+         * le registre doit deje s'executer sinon cette ligne echoue "Naming.rebind..."
          * 
          */
        try {
            
          Naming.rebind("ServeurServices", new ServeurServicesImpl());
        } catch(Exception ex) { }
-       System.out.println("Le service distant s'ex�cute");
+       System.out.println("Le service distant s'execute");
     }
 }

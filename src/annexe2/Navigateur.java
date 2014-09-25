@@ -1,7 +1,7 @@
 package annexe2;
 /**
- * @author Kathy Sierra, Bert Bates : "Java T�te la Premi�re"  * 
- * Mise en forme des commentaires Fran�oise PERRIN
+ * @author Kathy Sierra, Bert Bates : "Java Tete la Premiere"  * 
+ * Mise en forme des commentaires Franeoise PERRIN
  */
 
 import java.awt.*;
@@ -48,16 +48,16 @@ public class Navigateur {
         }
     }
     /*
-     * Le client doit acc�der � l'objet souche, 
-     * puisque c'est sur cette entit� qu'il va appeler les m�thodes.
+     * Le client doit acceder e l'objet souche, 
+     * puisque c'est sur cette entite qu'il va appeler les methodes.
      * 
      * le client consulte le registre RMI : Naming.lookup("rmi://127.0.0.1/ServeurServices");
-     * "ServeurServices" est le nom sous lequel le service a �t� enregistr�
+     * "ServeurServices" est le nom sous lequel le service a ete enregistre
      * 
-     * le registre RMI retourne l'objet souche comme valeur de retour de la m�thode lookup()
-     * et RMI le d�s�rialise automatiquement. la classe de la souche (g�n�r�e) doit �tre sur le client.
+     * le registre RMI retourne l'objet souche comme valeur de retour de la methode lookup()
+     * et RMI le deserialise automatiquement. la classe de la souche (generee) doit etre sur le client.
      * 
-     * le client invoque une m�thode sur la souche comme si elle �tait le service r�el :
+     * le client invoque une methode sur la souche comme si elle etait le service reel :
      * "serveur.getListeServices()"
      */
     Object[] getListeServices() {
@@ -93,7 +93,7 @@ public class Navigateur {
     class EcouteMaListe implements ActionListener {
         public void actionPerformed(ActionEvent ev) {
 
-            // acc�der au service s�lectionn�
+            // acceder au service selectionne
 
             Object selection =  listeServices.getSelectedItem();
             chargerService(selection);

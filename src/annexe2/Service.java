@@ -1,6 +1,6 @@
 package annexe2;
 /**
- * @author Kathy Sierra, Bert Bates : "Java T�te la Premi�re" 
+ * @author Kathy Sierra, Bert Bates : "Java Tete la Premiere" 
  */
 import javax.swing.*;
 import java.io.*;

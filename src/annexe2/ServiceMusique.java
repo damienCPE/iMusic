@@ -1,6 +1,6 @@
 package annexe2;
 /**
- * @author Kathy Sierra, Bert Bates : "Java T�te la Premi�re" 
+ * @author Kathy Sierra, Bert Bates : "Java Tete la Premiere" 
  */
 import javax.sound.midi.*;
 import java.io.*;
@@ -32,7 +32,7 @@ public class ServiceMusique implements Service {
         try {
 
 
-    // cr�er (et ouvrir) un s�quenceur, cr�er une s�quence et une piste
+    // creer (et ouvrir) un sequenceur, creer une sequence et une piste
 
          Sequencer sequenceur = MidiSystem.getSequencer();
          sequenceur.open();
@@ -41,7 +41,7 @@ public class ServiceMusique implements Service {
          Sequence seq = new Sequence(Sequence.PPQ, 4);
          Track piste = seq.createTrack();
 
-    // cr�er deux �v�nements midi (contenant un message midi)
+    // creer deux evenements midi (contenant un message midi)
 
 
         for (int i = 0; i < 100; i+= 4) {
@@ -57,8 +57,8 @@ public class ServiceMusique implements Service {
             }
          } // fin de la boucle
 
-            // ajouter les �v�nements � la piste
-            // ajouter la s�quence au s�quenceur, fixer le timing et d�marrer
+            // ajouter les evenements e la piste
+            // ajouter la sequence au sequenceur, fixer le timing et demarrer
 
          sequenceur.setSequence(seq);
 
@@ -117,7 +117,7 @@ public MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
            msg = false;
 
        } // fin du if
-     } // fin de la m�thode
+     } // fin de la methode
    }  // fin de la classe interne
 
 } // fin de la classe
