@@ -24,6 +24,7 @@ package annexe1;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.File;
 
 import javax.sound.midi.ControllerEventListener;
 import javax.sound.midi.MidiEvent;
@@ -71,7 +72,8 @@ public class MidiExemple {
 
 
             // créer une séquence et une piste
-            Sequence seq = new Sequence(Sequence.PPQ, 4);
+            Sequence seq = MidiSystem.getSequence(new File("./src/annexe1/one_republic-love_runs_out.mid"));
+            //Sequence seq = new Sequence(Sequence.PPQ, 4);
             Track piste = seq.createTrack();
 
             // maintenant créer deux événements midi (contenant un message midi)
