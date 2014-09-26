@@ -11,12 +11,10 @@ import javax.sound.midi.Sequencer;
 public class Player extends Observable{
     private MusiqueFactory musFac;
     private Sequencer mySequencer;
-    private ArrayList tabObservateur;// Tableau d'observateurs.
     
     // Constructeur
     public Player() {
         this.musFac = new MusiqueFactory();
-        tabObservateur=new ArrayList();
     }
 
     // Getter de l'attribut mySequence
