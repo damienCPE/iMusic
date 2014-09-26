@@ -1,14 +1,21 @@
 package partie1;
 
+import java.util.ArrayList;
+
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 
-public class Player {
+public class Player implements Observable{
     private MusiqueFactory musFac;
     private Sequencer mySequencer;
+    private ArrayList tabObservateur;// Tableau d'observateurs.
+    
 
     public Player() {
         this.musFac = new MusiqueFactory();
@@ -18,6 +25,7 @@ public class Player {
         } catch (MidiUnavailableException e) {
             e.printStackTrace();
         }*/
+        tabObservateur=new ArrayList();
     }
 
     public Sequencer getMySequence() {
@@ -83,7 +91,7 @@ public class Player {
 
     public int genererMusique() {
         Musique mus;
-        this.creerSequencer();
+        //this.creerSequencer();
         mus = this.musFac.creationMusique(TypeMusique.GENEREE, "");
         if (mus == null)
             return -1;
@@ -97,4 +105,15 @@ public class Player {
         }
         //return 0;
     }
+
+	@Override
+	public void addListener(InvalidationListener arg0) {
+		tabObservateur.add(arg0); 
+	}
+
+	@Override
+	public void removeListener(InvalidationListener arg0) {
+		tabObservateur.remove(arg0);
+		
+	}
 }
