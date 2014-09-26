@@ -1,14 +1,14 @@
 package partie1;
 
 import java.util.ArrayList;
-
+import java.util.Observable;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 
-public class Player{
+public class Player extends Observable{
     private MusiqueFactory musFac;
     private Sequencer mySequencer;
     private ArrayList tabObservateur;// Tableau d'observateurs.
