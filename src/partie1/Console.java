@@ -50,14 +50,14 @@ public class Console {
     }
 
     public String chargerFichier() {
-        JFileChooser chooser = new JFileChooser("./src/audio");
+        /*JFileChooser chooser = new JFileChooser("./src/audio");
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichier audio MIDI", "mid");
         chooser.setFileFilter(filter);
         int returnVal = chooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             return chooser.getSelectedFile().getAbsolutePath();
         }
-        return null;
-        //return "./src/audio/pallet-town.mid";
+        return null;*/
+        return "./src/audio/pallet-town.mid";
     }
 }
