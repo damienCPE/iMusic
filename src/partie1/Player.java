@@ -15,24 +15,30 @@ public class Player {
 		this.mySequencer = mySequence;
 	}
 	
-	public void lire(){
+	// lit la musique
+	public int lire(){
 		if(mySequencer.isOpen()){
 			mySequencer.start();
+			return 0;
 		}
+		return -1;
 	}
 	
-	public void stop(){
+	// arrete la musique
+	public int stop(){
 		if(mySequencer.isRunning()){
 			mySequencer.stop();
+			return 0;
 		}
+		return -1;
 	}
 	
+	// charge la sequence de la musique 
 	public int charger(Sequence seq){
 		try {
 			mySequencer.setSequence(seq);
 			return 0;
 		} catch (InvalidMidiDataException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return -1;
 		}

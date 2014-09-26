@@ -1,19 +1,12 @@
 package partie1;
 
-import java.io.File;
-
-import javax.sound.midi.MidiEvent;
-import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequence;
-import javax.sound.midi.Sequencer;
-import javax.sound.midi.ShortMessage;
 import javax.sound.midi.Track;
 
 public class MusiqueGeneree extends Musique {
 
 	@Override
 	public int creationPiste() {
-		// TODO Auto-generated method stub
 		/*
          * Le processus comprend 5 étapes
          * 1 - Obtenir un séquenceur, un objet Sequencer, et l’ouvrir
@@ -24,12 +17,6 @@ public class MusiqueGeneree extends Musique {
          */
 
         try {
-/*
-            // créer (et ouvrir) un séquenceur
-            Sequencer sequenceur = MidiSystem.getSequencer();
-            sequenceur.open();
-
-*/
             // créer une séquence et une piste
             this.setSeq(new Sequence(Sequence.PPQ, 4));
             //Sequence seq = new Sequence(Sequence.PPQ, 4);
@@ -61,21 +48,6 @@ public class MusiqueGeneree extends Musique {
                 piste.add(makeEvent(128,1,r,100,i + 2));
                 
             } // fin de la boucle
-/*
-        
-            // ajouter la séquence au séquenceur, fixer le timing et démarrer
-            sequenceur.setSequence(seq);
-            sequenceur.setTempoInBPM(120);
-            sequenceur.start();
-            
-            */
-            
-            /* le panneau de dessin (écouteur) doit s'enregistrer auprès du séquenceur. 
-             * La méthode d'enregistrement accepte l'écouteur 
-             * ET un tableau d'entiers représentant la liste d'événements voulus. 
-             * Ici, nous n'en voulons qu'un, le N° 127.
-             */
-            //sequenceur.addControllerEventListener(ml, new int[] {127});
             
             return 0;
         } catch (Exception ex) {

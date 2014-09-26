@@ -10,7 +10,6 @@ public class MusiqueFichier extends Musique {
 
 	@Override
 	public int creationPiste() {
-		// TODO Auto-generated method stub
 		// créer une séquence et une piste
 		try {
 			this.setSeq(MidiSystem.getSequence(new File("./src/annexe1/one_republic-love_runs_out.mid")));

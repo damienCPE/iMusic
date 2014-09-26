@@ -17,13 +17,13 @@ public class Controlleur {
 	}
 
 	public void DemarrerLecture(){
-		if(player.getMySequence().isRunning()){
+		if(player.getMySequence() != null){
 			player.lire();
 		}
 	}
 	
 	public void ArreterLecture(){
-		if(player.getMySequence().isOpen()){
+		if(player.getMySequence() != null){
 			player.stop();
 		}
 	}
