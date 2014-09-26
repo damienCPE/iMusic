@@ -33,6 +33,7 @@ public class Player {
         if (mySequencer.isRunning()) {
             mySequencer.stop();
         }
+        mySequencer.close();
     }
 
     public int charger(Sequence seq) {

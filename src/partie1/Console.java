@@ -46,7 +46,7 @@ public class Console {
     }
     
     public void quitterConsole() {
-        System.out.println("Merci d'utiliser IMusic !");
+        System.out.println("Merci d'avoir utiliser IMusic !");
     }
 
     public String chargerFichier() {
@@ -58,5 +58,6 @@ public class Console {
             return chooser.getSelectedFile().getAbsolutePath();
         }
         return null;
+        //return "./src/audio/pallet-town.mid";
     }
 }
