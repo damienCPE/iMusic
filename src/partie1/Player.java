@@ -12,12 +12,7 @@ public class Player {
 
     public Player() {
         this.musFac = new MusiqueFactory();
-        /*try {
-            this.mySequencer = MidiSystem.getSequencer();
-            mySequencer.open();
-        } catch (MidiUnavailableException e) {
-            e.printStackTrace();
-        }*/
+        //this.creerSequencer();
     }
 
     public Sequencer getMySequence() {
@@ -90,6 +85,5 @@ public class Player {
             e.printStackTrace();
             return -1;
         }
-        //return 0;
     }
 }
