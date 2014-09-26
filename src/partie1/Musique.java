@@ -1,4 +1,4 @@
-package annexe1;
+package partie1;
 
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Track;

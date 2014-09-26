@@ -1,4 +1,4 @@
-package annexe1;
+package partie1;
 
 public class Controlleur {
 	private Player player;
