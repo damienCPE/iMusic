@@ -40,10 +40,14 @@ public class Player {
             mySequencer.setSequence(seq);
             return 0;
         } catch (InvalidMidiDataException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return -1;
         }
+    }
+    
+    public int quitter(){
+    	mySequencer.close();
+    	return 0;
     }
 
     private void creerSequencer() {
@@ -74,6 +78,7 @@ public class Player {
 
     public int genererMusique() {
         Musique mus;
+        this.creerSequencer();
         mus = this.musFac.creationMusique(TypeMusique.GENEREE, "");
         if (mus == null)
             return -1;

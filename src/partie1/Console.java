@@ -1,6 +1,7 @@
 package partie1;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import javax.swing.JFileChooser;
@@ -34,8 +35,13 @@ public class Console {
             BufferedReader bufferRead = new BufferedReader(
                     new InputStreamReader(System.in));
             s = bufferRead.readLine();
-            i = Integer.parseInt(s);
-        } catch (Exception e) {}
+            if(s.equals("")){
+            	i = 0;
+            }else
+            	i = Integer.parseInt(s);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return i;
     }
     
