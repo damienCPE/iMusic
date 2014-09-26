@@ -17,19 +17,22 @@ public class ConsoleListener {
 
     public void lancerIMusic() {
         int act;
-        this.cons.afficherMenu();
         do {
+            this.cons.afficherMenu();
             act = this.cons.getActionMenu();
+            System.out.println("Ici1");
             switch (act) {
             case 1:
                 // System.out.println("Choix 1 - Load");
+                System.out.println("Ici2");
                 String f = this.cons.chargerFichier();
                 System.out.println("Chargement du fichier...");
                 this.ctrlr.chargerFichier(f);
+                System.out.println("Ici3");
                 break;
             case 2:
-                //System.out.println("Choix 2 - Generer");
-                //this.ctrlr.genererFichier();
+                System.out.println("Choix 2 - Generer");
+                this.ctrlr.generer();
                 break;
             case 3:
                 System.out.println("Choix 3 - Play");
@@ -44,7 +47,6 @@ public class ConsoleListener {
                 break;
             default:
                 System.out.println("404 Not Found - Ce choix n'existe pas.");
-                this.cons.afficherMenu();
                 break;
             }
         } while (act != 5);

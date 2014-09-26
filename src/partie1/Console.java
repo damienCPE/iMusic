@@ -22,9 +22,10 @@ public class Console {
     public void afficherMenu() {
         System.out.println("");
         System.out.println("    - 1 -   Charger un fichier");
-        System.out.println("    - 2 -   Lecture");
-        System.out.println("    - 3 -   Stop");
-        System.out.println("    - 4 -   Quitter");
+        System.out.println("    - 2 -   Générer une piste");
+        System.out.println("    - 3 -   Lecture");
+        System.out.println("    - 4 -   Stop");
+        System.out.println("    - 5 -   Quitter");
         System.out.println("");
         System.out.print("Faites votre choix : ");
     }
@@ -48,7 +49,6 @@ public class Console {
     }
 
     public String chargerFichier() {
-
         JFileChooser chooser = new JFileChooser("./src/annexe1");
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichier audio MIDI", "mid");
         chooser.setFileFilter(filter);

@@ -12,11 +12,12 @@ public class Player {
 
     public Player() {
         this.musFac = new MusiqueFactory();
-        try {
+        /*try {
             this.mySequencer = MidiSystem.getSequencer();
+            mySequencer.open();
         } catch (MidiUnavailableException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public Sequencer getMySequence() {
@@ -50,17 +51,27 @@ public class Player {
         }
     }
 
+    private void creerSequencer() {
+        try {
+            this.mySequencer = MidiSystem.getSequencer();
+            mySequencer.open();
+        } catch (MidiUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
+
     public int chargerFichier(String fichier) {
         Musique mus;
+        this.creerSequencer();
         mus = this.musFac.creationMusique(TypeMusique.FICHIER, fichier);
         if (mus == null)
             return -1;
         mus.creationPiste();
         try {
             mySequencer.setSequence(mus.getSeq());
+            mySequencer.setTempoInBPM(120);
             return 0;
         } catch (InvalidMidiDataException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return -1;
         }
