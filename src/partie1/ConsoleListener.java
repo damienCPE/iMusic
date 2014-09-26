@@ -3,6 +3,7 @@ package partie1;
 public class ConsoleListener {
 
     Console cons;
+    Controlleur ctrlr;
 
     public static void main(String[] args) {
         ConsoleListener consList = new ConsoleListener();
@@ -11,6 +12,7 @@ public class ConsoleListener {
 
     public ConsoleListener() {
         this.cons = new Console();
+        this.ctrlr = new Controlleur();
     }
 
     public void lancerIMusic() {
@@ -20,15 +22,24 @@ public class ConsoleListener {
             act = this.cons.getActionMenu();
             switch (act) {
             case 1:
-                System.out.println("Choix 1 - Load");
+                // System.out.println("Choix 1 - Load");
+                String f = this.cons.chargerFichier();
+                System.out.println("Chargement du fichier...");
+                //this.ctrlr.chargerFichier(f);
                 break;
             case 2:
-                System.out.println("Choix 2 - Play");
+                //System.out.println("Choix 2 - Generer");
+                //this.ctrlr.genererFichier();
                 break;
             case 3:
-                System.out.println("Choix 3 - Stop");
+                System.out.println("Choix 3 - Play");
+                this.ctrlr.DemarrerLecture();
                 break;
             case 4:
+                System.out.println("Choix 4 - Stop");
+                this.ctrlr.ArreterLecture();
+                break;
+            case 5:
                 this.cons.quitterConsole();
                 break;
             default:
@@ -36,6 +47,6 @@ public class ConsoleListener {
                 this.cons.afficherMenu();
                 break;
             }
-        } while (act != 4);
+        } while (act != 5);
     }
 }

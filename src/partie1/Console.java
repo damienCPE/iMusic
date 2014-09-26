@@ -1,8 +1,13 @@
 package partie1;
 
+import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import javax.swing.JFileChooser;
+import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Console {
 
@@ -40,5 +45,18 @@ public class Console {
     
     public void quitterConsole() {
         System.out.println("Merci d'utiliser IMusic !");
+    }
+
+    public String chargerFichier() {
+
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichier audio MIDI", "mid");
+        chooser.setFileFilter(filter);
+        Component parent = new JPanel();
+        int returnVal = chooser.showOpenDialog(parent);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            return chooser.getSelectedFile().getName();
+        }
+        return null;
     }
 }
