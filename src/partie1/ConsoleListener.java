@@ -43,6 +43,7 @@ public class ConsoleListener {
                 this.ctrlr.ArreterLecture();
                 break;
             case 5:
+            	this.ctrlr.quitterPlayer();
                 this.cons.quitterConsole();
                 break;
             default:

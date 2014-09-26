@@ -33,6 +33,19 @@ public class Controlleur {
         return 0;
     }
     
+    public int quitterPlayer(){
+    	if(player.getMySequence() != null)
+    		return -1;
+    	if(this.player.getMySequence().isRunning()){
+    		ArreterLecture();
+    	}
+    	if(this.player.getMySequence().isOpen()){
+    		this.player.getMySequence().close();
+    	}else
+    		return -2;
+    	return 0;
+    }
+    
     public int generer(){
         this.player.genererMusique();
         return 0;

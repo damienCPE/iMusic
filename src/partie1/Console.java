@@ -37,7 +37,10 @@ public class Console {
             BufferedReader bufferRead = new BufferedReader(
                     new InputStreamReader(System.in));
             s = bufferRead.readLine();
-            i = Integer.parseInt(s);
+            if(s.equals("")){
+            	i = 0;
+            }else
+            	i = Integer.parseInt(s);
         } catch (IOException e) {
             e.printStackTrace();
         }
