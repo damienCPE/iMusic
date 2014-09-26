@@ -17,7 +17,6 @@ public class Player{
     public Player() {
         this.musFac = new MusiqueFactory();
         tabObservateur=new ArrayList();
-        //this.creerSequencer();
     }
 
     public Sequencer getMySequence() {
