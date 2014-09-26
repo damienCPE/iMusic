@@ -49,13 +49,13 @@ public class Console {
 
     public String chargerFichier() {
 
-        JFileChooser chooser = new JFileChooser();
+        JFileChooser chooser = new JFileChooser("./src/annexe1");
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichier audio MIDI", "mid");
         chooser.setFileFilter(filter);
         Component parent = new JPanel();
         int returnVal = chooser.showOpenDialog(parent);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            return chooser.getSelectedFile().getName();
+            return chooser.getSelectedFile().getAbsolutePath();
         }
         return null;
     }
