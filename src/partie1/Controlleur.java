@@ -33,7 +33,7 @@ public class Controlleur {
         return 0;
     }
     
-    public int generer(String f){
+    public int generer(){
         this.player.genererMusique();
         return 0;
     }
