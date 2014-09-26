@@ -16,8 +16,7 @@ public class MusiqueFichier extends Musique {
     
 	@Override
 	public int creationPiste() {
-		// TODO Auto-generated method stub
-		// creer une sequence et une piste
+		// créer une séquence et une piste
 		try {
 			this.setSeq(MidiSystem.getSequence(new File(chemin)));
 		} catch (Exception e) {
