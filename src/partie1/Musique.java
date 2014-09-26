@@ -3,7 +3,7 @@ package partie1;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Track;
 
-public class Musique {
+public abstract class Musique implements IMusique{
 	private Sequence seq;
 	private Track piste;
 	
