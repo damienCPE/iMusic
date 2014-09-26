@@ -39,7 +39,6 @@ public class Player extends Observable{
         if (mySequencer.isRunning()) {
             mySequencer.stop();
         }
-        mySequencer.close();
     }
 
     public int charger(Sequence seq) {
@@ -85,7 +84,7 @@ public class Player extends Observable{
 
     public int genererMusique() {
         Musique mus;
-        //this.creerSequencer();
+        this.creerSequencer();
         mus = this.musFac.creationMusique(TypeMusique.GENEREE, "");
         if (mus == null)
             return -1;

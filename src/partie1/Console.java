@@ -17,6 +17,7 @@ public class Console {
         this.afficherMenu();
     }
 
+    // Affiche le menu console
     public void afficherMenu() {
         System.out.println("");
         System.out.println("    - 1 -   Charger un fichier");
@@ -28,6 +29,7 @@ public class Console {
         System.out.print("Faites votre choix : ");
     }
 
+    // Lit l'entrée de la console et renvoi le numéro d'action
     public int getActionMenu() {
         String s = "0";
         int i = Integer.parseInt(s);
@@ -35,29 +37,33 @@ public class Console {
             BufferedReader bufferRead = new BufferedReader(
                     new InputStreamReader(System.in));
             s = bufferRead.readLine();
-            if(s.equals("")){
-            	i = 0;
-            }else
-            	i = Integer.parseInt(s);
+            if (s.equals("")) {
+                i = 0;
+            } else {
+                if (Character.isDigit(s.charAt(0))) {
+                    i = Integer.parseInt(s);
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return i;
     }
-    
+
     public void quitterConsole() {
         System.out.println("Merci d'avoir utiliser IMusic !");
     }
 
     public String chargerFichier() {
-        /*JFileChooser chooser = new JFileChooser("./src/audio");
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichier audio MIDI", "mid");
+        // Ne fonctionne pas sur Mac (Remplacer par return "./src/audio/pallet-town.mid";)
+        JFileChooser chooser = new JFileChooser("./src/audio");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "Fichier audio MIDI", "mid");
         chooser.setFileFilter(filter);
         int returnVal = chooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             return chooser.getSelectedFile().getAbsolutePath();
         }
-        return null;*/
-        return "./src/audio/pallet-town.mid";
+        return null;
     }
 }

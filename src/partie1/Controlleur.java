@@ -22,6 +22,7 @@ public class Controlleur {
 		}
 	}
 	
+	// Met la lecture en pause
 	public void ArreterLecture(){
 		if(player.getMySequence() != null){
 			player.stop();
@@ -43,6 +44,7 @@ public class Controlleur {
     		this.player.getMySequence().close();
     	}else
     		return -2;
+    	this.player.quitter();
     	return 0;
     }
     
