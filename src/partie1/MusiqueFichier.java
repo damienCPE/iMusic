@@ -8,11 +8,17 @@ import javax.sound.midi.Track;
 
 public class MusiqueFichier extends Musique {
 
+    String chemin;
+    
+    public MusiqueFichier(String s){
+        this.chemin=s;
+    }
+    
 	@Override
 	public int creationPiste() {
 		// créer une séquence et une piste
 		try {
-			this.setSeq(MidiSystem.getSequence(new File("./src/annexe1/one_republic-love_runs_out.mid")));
+			this.setSeq(MidiSystem.getSequence(new File(chemin)));
 		} catch (Exception e) {
 			return -1;
 		}
@@ -20,25 +26,25 @@ public class MusiqueFichier extends Musique {
         //Sequence seq = new Sequence(Sequence.PPQ, 4);
         Track piste = this.getSeq().createTrack();
 
-        // maintenant créer deux événements midi (contenant un message midi)
+        // maintenant creer deux evenements midi (contenant un message midi)
         int r = 0;
         for (int i = 0; i < 100; i+= 4) {
 
             r = (int) ((Math.random() * 50) + 1);
             
-            // ajouter les événements à la piste
+            // ajouter les evenements e la piste
             
-            // 144 = noteOn, 1 = piano, 44 = la note, 100 = vélocité
+            // 144 = noteOn, 1 = piano, 44 = la note, 100 = velocite
             piste.add(makeEvent(144,1,r,100,i));
             
-            /* Pour suivre le rythme. Nous insérons notre PROPRE ControllerEvent :
-             * 176 indique que le type de l'événement est ControllerEvent) 
-             * avec un argument pour le numéro d'événement, 127. 
-             * Cet événement ne fera RIEN ! 
-             * Il n'est là QUE pour que nous ayons un événement chaque fois qu'une note est jouée. 
-             * Autrement dit, sa seule raison d'être est qu'un évènement se déclenche 
-             * que NOUS puissions écouter (impossible d'écouter NOTE ON/OFF ). 
-             * Cet événement a lieu sur le MÊME temps que NOTE ON. 
+            /* Pour suivre le rythme. Nous inserons notre PROPRE ControllerEvent :
+             * 176 indique que le type de l'evenement est ControllerEvent) 
+             * avec un argument pour le numero d'evenement, 127. 
+             * Cet evenement ne fera RIEN ! 
+             * Il n'est le QUE pour que nous ayons un evenement chaque fois qu'une note est jouee. 
+             * Autrement dit, sa seule raison d'etre est qu'un evenement se declenche 
+             * que NOUS puissions ecouter (impossible d'ecouter NOTE ON/OFF ). 
+             * Cet evenement a lieu sur le MeME temps que NOTE ON. 
              */
             piste.add(makeEvent(176,1,127,0,i));
             

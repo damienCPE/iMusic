@@ -27,4 +27,14 @@ public class Controlleur {
 			player.stop();
 		}
 	}
+    
+    public int chargerFichier(String f){
+        this.player.chargerFichier(f);
+        return 0;
+    }
+    
+    public int generer(String f){
+        this.player.genererMusique();
+        return 0;
+    }
 }
