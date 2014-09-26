@@ -1,4 +1,4 @@
-package partie1;
+package partie1.model;
 
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Track;
@@ -6,6 +6,7 @@ import javax.sound.midi.Track;
 public class MusiqueGeneree extends Musique {
 
 	@Override
+	// Genere la piste audio a partir d'un "algorithme"
 	public int creationPiste() {
 		/*
          * Le processus comprend 5 etapes
@@ -17,7 +18,7 @@ public class MusiqueGeneree extends Musique {
          */
 
         try {
-            // créer une séquence et une piste
+            // creer une sequence et une piste
         	
             this.setSeq(new Sequence(Sequence.PPQ, 4));
             Track piste = this.getSeq().createTrack();

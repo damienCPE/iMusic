@@ -1,4 +1,4 @@
-package partie1;
+package partie1.vue;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,12 +9,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Console {
 
+    // Constructeur
     public Console() {
         System.out.println("Bienvenue dans IMusic !");
-    }
-
-    public void lancerConsole() {
-        this.afficherMenu();
     }
 
     // Affiche le menu console
@@ -29,7 +26,7 @@ public class Console {
         System.out.print("Faites votre choix : ");
     }
 
-    // Lit l'entrée de la console et renvoi le numéro d'action
+    // Lit l'entree de la console et renvoi le numero d'action
     public int getActionMenu() {
         String s = "0";
         int i = Integer.parseInt(s);

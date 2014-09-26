@@ -1,15 +1,19 @@
-package partie1;
+package partie1.controleur;
+
+import partie1.vue.Console;
 
 public class ConsoleListener {
 
     Console cons;
     Controlleur ctrlr;
 
+    // Constructeur
     public ConsoleListener() {
         this.cons = new Console();
         this.ctrlr = new Controlleur();
     }
 
+    // Lance le programme IMusic Console
     public void lancerIMusic() {
         int act;
         do {
@@ -22,7 +26,7 @@ public class ConsoleListener {
                 this.ctrlr.chargerFichier(f);
                 break;
             case 2:
-                System.out.println("Génération en cours...");
+                System.out.println("G��n��ration en cours...");
                 this.ctrlr.generer();
                 break;
             case 3:
@@ -30,7 +34,7 @@ public class ConsoleListener {
                 this.ctrlr.DemarrerLecture();
                 break;
             case 4:
-                System.out.println("Arrêt de la lecture");
+                System.out.println("Arr��t de la lecture");
                 this.ctrlr.ArreterLecture();
                 break;
             case 5:
@@ -41,6 +45,7 @@ public class ConsoleListener {
                 System.out.println("404 Not Found - Ce choix n'existe pas.");
                 break;
             }
+        // Sortie du menu �� r��ception d'un 5
         } while (act != 5);
     }
 }

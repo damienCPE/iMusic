@@ -1,4 +1,4 @@
-package partie1;
+package partie1.model;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -14,33 +14,38 @@ public class Player extends Observable{
     private Sequencer mySequencer;
     private ArrayList tabObservateur;// Tableau d'observateurs.
     
-
+    // Constructeur
     public Player() {
         this.musFac = new MusiqueFactory();
         tabObservateur=new ArrayList();
         //this.creerSequencer();
     }
 
+    // Getter de l'attribut mySequence
     public Sequencer getMySequence() {
         return mySequencer;
     }
 
+    // Setter de l'attribut mySequence
     public void setMySequence(Sequencer mySequence) {
         this.mySequencer = mySequence;
     }
 
+    // Lance la lecture du fichier si le sequenceur est ouvert
     public void lire() {
         if (mySequencer.isOpen()) {
             mySequencer.start();
         }
     }
 
+    // Arreete la lecture si le sequenceur est fermee
     public void stop() {
         if (mySequencer.isRunning()) {
             mySequencer.stop();
         }
     }
 
+    // Charge la sequence dans le sequenceur
     public int charger(Sequence seq) {
         try {
             mySequencer.setSequence(seq);
@@ -51,11 +56,13 @@ public class Player extends Observable{
         }
     }
     
+    // Ferme le sequenceur
     public int quitter(){
     	mySequencer.close();
     	return 0;
     }
 
+    // Creer le sequenceur
     private void creerSequencer() {
         try {
             this.mySequencer = MidiSystem.getSequencer();
@@ -65,6 +72,7 @@ public class Player extends Observable{
         }
     }
 
+    // Creer la piste audio a partir du fichier passe en parametre et la charge dans le sequenceur
     public int chargerFichier(String fichier) {
         Musique mus;
         this.creerSequencer();
@@ -82,6 +90,7 @@ public class Player extends Observable{
         }
     }
 
+    // Creer la piste audio a partir d'un algorithme et la charge dans le sequenceur
     public int genererMusique() {
         Musique mus;
         this.creerSequencer();

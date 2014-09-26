@@ -1,4 +1,4 @@
-package partie1;
+package partie1.model;
 
 import java.io.File;
 
@@ -10,11 +10,13 @@ public class MusiqueFichier extends Musique {
 
     String chemin;
     
+    // Constructeur
     public MusiqueFichier(String s){
         this.chemin=s;
     }
     
 	@Override
+	// Creer la piste audio
 	public int creationPiste() {
 		// creer une sequence et une piste
 		try {

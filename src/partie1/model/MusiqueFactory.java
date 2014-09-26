@@ -1,11 +1,10 @@
-package partie1;
+package partie1.model;
 
 public class MusiqueFactory {
 	
-    public MusiqueFactory(){
-        
-    }
+    public MusiqueFactory(){}
     
+    // Creer l'objet musique en fonction du type et du chemin du fichier passe en parametre
     public Musique creationMusique(TypeMusique type, String s){
         Musique musique = null;
         switch (type) {
