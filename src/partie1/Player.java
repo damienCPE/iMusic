@@ -19,13 +19,8 @@ public class Player implements Observable{
 
     public Player() {
         this.musFac = new MusiqueFactory();
-        /*try {
-            this.mySequencer = MidiSystem.getSequencer();
-            mySequencer.open();
-        } catch (MidiUnavailableException e) {
-            e.printStackTrace();
-        }*/
         tabObservateur=new ArrayList();
+        //this.creerSequencer();
     }
 
     public Sequencer getMySequence() {
@@ -103,7 +98,6 @@ public class Player implements Observable{
             e.printStackTrace();
             return -1;
         }
-        //return 0;
     }
 
 	@Override

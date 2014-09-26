@@ -12,12 +12,15 @@ public abstract class Musique implements IMusique{
 	public Sequence getSeq() {
 		return seq;
 	}
+	
 	public void setSeq(Sequence seq) {
 		this.seq = seq;
 	}
+	
 	public Track getPiste() {
 		return piste;
 	}
+	
 	public void setPiste(Track piste) {
 		this.piste = piste;
 	}

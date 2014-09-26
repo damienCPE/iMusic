@@ -5,11 +5,6 @@ public class ConsoleListener {
     Console cons;
     Controlleur ctrlr;
 
-    public static void main(String[] args) {
-        ConsoleListener consList = new ConsoleListener();
-        consList.lancerIMusic();
-    }
-
     public ConsoleListener() {
         this.cons = new Console();
         this.ctrlr = new Controlleur();
@@ -20,26 +15,22 @@ public class ConsoleListener {
         do {
             this.cons.afficherMenu();
             act = this.cons.getActionMenu();
-            System.out.println("Ici1");
             switch (act) {
             case 1:
-                // System.out.println("Choix 1 - Load");
-                System.out.println("Ici2");
                 String f = this.cons.chargerFichier();
                 System.out.println("Chargement du fichier...");
                 this.ctrlr.chargerFichier(f);
-                System.out.println("Ici3");
                 break;
             case 2:
-                System.out.println("Choix 2 - Generer");
+                System.out.println("Génération en cours...");
                 this.ctrlr.generer();
                 break;
             case 3:
-                System.out.println("Choix 3 - Play");
+                System.out.println("Lecture...");
                 this.ctrlr.DemarrerLecture();
                 break;
             case 4:
-                System.out.println("Choix 4 - Stop");
+                System.out.println("Arrêt de la lecture");
                 this.ctrlr.ArreterLecture();
                 break;
             case 5:

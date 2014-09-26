@@ -1,12 +1,10 @@
 package partie1;
 
-import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 import javax.swing.JFileChooser;
-import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Console {
@@ -22,7 +20,7 @@ public class Console {
     public void afficherMenu() {
         System.out.println("");
         System.out.println("    - 1 -   Charger un fichier");
-        System.out.println("    - 2 -   Générer une piste");
+        System.out.println("    - 2 -   Generer une piste");
         System.out.println("    - 3 -   Lecture");
         System.out.println("    - 4 -   Stop");
         System.out.println("    - 5 -   Quitter");
@@ -52,11 +50,10 @@ public class Console {
     }
 
     public String chargerFichier() {
-        JFileChooser chooser = new JFileChooser("./src/annexe1");
+        JFileChooser chooser = new JFileChooser("./src/audio");
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichier audio MIDI", "mid");
         chooser.setFileFilter(filter);
-        Component parent = new JPanel();
-        int returnVal = chooser.showOpenDialog(parent);
+        int returnVal = chooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             return chooser.getSelectedFile().getAbsolutePath();
         }
