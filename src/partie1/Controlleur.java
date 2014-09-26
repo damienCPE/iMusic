@@ -34,7 +34,7 @@ public class Controlleur {
     }
     
     public int quitterPlayer(){
-    	if(player.getMySequence() != null)
+    	if(player.getMySequence() == null)
     		return -1;
     	if(this.player.getMySequence().isRunning()){
     		ArreterLecture();
