@@ -28,6 +28,7 @@ public class Console {
         System.out.print("Faites votre choix : ");
     }
 
+    // récupère les entrés de l'utilisateur
     public int getActionMenu() {
         String s = "0";
         int i = Integer.parseInt(s);
@@ -48,7 +49,8 @@ public class Console {
     public void quitterConsole() {
         System.out.println("Merci d'utiliser IMusic !");
     }
-
+    
+    // ouvre une fenetre et récupère le chemin du fichier midi sélectionné
     public String chargerFichier() {
         JFileChooser chooser = new JFileChooser("./src/audio");
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichier audio MIDI", "mid");

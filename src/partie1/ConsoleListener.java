@@ -12,6 +12,8 @@ public class ConsoleListener {
 
     public void lancerIMusic() {
         int act;
+        
+        // récupère les évènements des actions de l'utilisateur et transmet des ordres au controleur
         do {
             this.cons.afficherMenu();
             act = this.cons.getActionMenu();

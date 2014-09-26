@@ -39,6 +39,7 @@ public class Player{
         }
     }
 
+    // charge la sequence d'une musique
     public int charger(Sequence seq) {
         try {
             mySequencer.setSequence(seq);
@@ -49,11 +50,13 @@ public class Player{
         }
     }
     
+    // ferme le sequenceur
     public int quitter(){
     	mySequencer.close();
     	return 0;
     }
 
+    // crée un nouveau sequenceur et l'ouvre
     private void creerSequencer() {
         try {
             this.mySequencer = MidiSystem.getSequencer();
@@ -63,6 +66,7 @@ public class Player{
         }
     }
 
+    // charge dans le séquencer la sequence du fichier midi
     public int chargerFichier(String fichier) {
         Musique mus;
         this.creerSequencer();
@@ -79,7 +83,8 @@ public class Player{
             return -1;
         }
     }
-
+    
+    // creer un sequencer et récuère la musique générée
     public int genererMusique() {
         Musique mus;
         this.creerSequencer();
