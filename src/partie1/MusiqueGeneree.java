@@ -20,7 +20,6 @@ public class MusiqueGeneree extends Musique {
             // créer une séquence et une piste
         	
             this.setSeq(new Sequence(Sequence.PPQ, 4));
-            //Sequence seq = new Sequence(Sequence.PPQ, 4);
             Track piste = this.getSeq().createTrack();
 
             // maintenant creer deux evenements midi (contenant un message midi)
@@ -29,7 +28,7 @@ public class MusiqueGeneree extends Musique {
 
                 r = (int) ((Math.random() * 50) + 1);
                 
-                // ajouter les evenements e la piste
+                // ajouter les evenements de la piste
                 
                 // 144 = noteOn, 1 = piano, 44 = la note, 100 = velocite
                 piste.add(makeEvent(144,1,r,100,i));
@@ -48,13 +47,13 @@ public class MusiqueGeneree extends Musique {
                 // 128 = noteOff                
                 piste.add(makeEvent(128,1,r,100,i + 2));
                 
-            } // fin de la boucle
+            }
             
             return 0;
         } catch (Exception ex) {
         	ex.printStackTrace();
         	return -1;	
         }
-    } // fin de la methode go()
+    }
 
 }

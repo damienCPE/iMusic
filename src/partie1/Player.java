@@ -69,6 +69,16 @@ public class Player {
     public int genererMusique() {
         Musique mus;
         mus = this.musFac.creationMusique(TypeMusique.GENEREE, "");
-        return 0;
+        if (mus == null)
+            return -1;
+        mus.creationPiste();
+        try {
+            mySequencer.setSequence(mus.getSeq());
+            return 0;
+        } catch (InvalidMidiDataException e) {
+            e.printStackTrace();
+            return -1;
+        }
+        //return 0;
     }
 }
