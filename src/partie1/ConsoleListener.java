@@ -21,7 +21,10 @@ public class ConsoleListener {
             case 1:
                 String f = this.cons.chargerFichier();
                 System.out.println("Chargement du fichier...");
-                this.ctrlr.chargerFichier(f);
+                if(f != "")
+                	this.ctrlr.chargerFichier(f);
+                else
+                	System.out.println("Pas de fichier selectionné");
                 break;
             case 2:
                 System.out.println("Génération en cours...");

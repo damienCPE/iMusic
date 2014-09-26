@@ -52,13 +52,17 @@ public class Console {
     
     // ouvre une fenetre et récupère le chemin du fichier midi sélectionné
     public String chargerFichier() {
+    	String path = "";
         JFileChooser chooser = new JFileChooser("./src/audio");
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichier audio MIDI", "mid");
         chooser.setFileFilter(filter);
         int returnVal = chooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            return chooser.getSelectedFile().getAbsolutePath();
+            path = chooser.getSelectedFile().getAbsolutePath();
+            if(path != ""){
+            	return path;
+            }
         }
-        return null;
+        return "";
     }
 }
