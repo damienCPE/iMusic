@@ -25,7 +25,7 @@ public class ConsoleListener {
                 // System.out.println("Choix 1 - Load");
                 String f = this.cons.chargerFichier();
                 System.out.println("Chargement du fichier...");
-                //this.ctrlr.chargerFichier(f);
+                this.ctrlr.chargerFichier(f);
                 break;
             case 2:
                 //System.out.println("Choix 2 - Generer");

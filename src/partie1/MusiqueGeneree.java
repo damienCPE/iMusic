@@ -15,45 +15,45 @@ public class MusiqueGeneree extends Musique {
 	public int creationPiste() {
 		// TODO Auto-generated method stub
 		/*
-         * Le processus comprend 5 étapes
-         * 1 - Obtenir un séquenceur, un objet Sequencer, et l’ouvrir
-         * 2 - Créer un nouvel objet Sequence
-         * 3 - Demander à la Sequence de créer une piste piste de type Track
-         * 4 - Remplir la piste d’événements MIDI — MidiEvents — et transmettre la séquence au séquenceur
-         * 5 - Démarrer le séquenceur avec la méthode start() 
+         * Le processus comprend 5 etapes
+         * 1 - Obtenir un sequenceur, un objet Sequencer, et leouvrir
+         * 2 - Creer un nouvel objet Sequence
+         * 3 - Demander e la Sequence de creer une piste piste de type Track
+         * 4 - Remplir la piste deevenements MIDI e MidiEvents e et transmettre la sequence au sequenceur
+         * 5 - Demarrer le sequenceur avec la methode start() 
          */
 
         try {
 /*
-            // créer (et ouvrir) un séquenceur
+            // creer (et ouvrir) un sequenceur
             Sequencer sequenceur = MidiSystem.getSequencer();
             sequenceur.open();
 
 */
-            // créer une séquence et une piste
+            // creer une sequence et une piste
             this.setSeq(new Sequence(Sequence.PPQ, 4));
             //Sequence seq = new Sequence(Sequence.PPQ, 4);
             Track piste = this.getSeq().createTrack();
 
-            // maintenant créer deux événements midi (contenant un message midi)
+            // maintenant creer deux evenements midi (contenant un message midi)
             int r = 0;
             for (int i = 0; i < 100; i+= 4) {
 
                 r = (int) ((Math.random() * 50) + 1);
                 
-                // ajouter les événements à la piste
+                // ajouter les evenements e la piste
                 
-                // 144 = noteOn, 1 = piano, 44 = la note, 100 = vélocité
+                // 144 = noteOn, 1 = piano, 44 = la note, 100 = velocite
                 piste.add(makeEvent(144,1,r,100,i));
                 
-                /* Pour suivre le rythme. Nous insérons notre PROPRE ControllerEvent :
-                 * 176 indique que le type de l'événement est ControllerEvent) 
-                 * avec un argument pour le numéro d'événement, 127. 
-                 * Cet événement ne fera RIEN ! 
-                 * Il n'est là QUE pour que nous ayons un événement chaque fois qu'une note est jouée. 
-                 * Autrement dit, sa seule raison d'être est qu'un évènement se déclenche 
-                 * que NOUS puissions écouter (impossible d'écouter NOTE ON/OFF ). 
-                 * Cet événement a lieu sur le MÊME temps que NOTE ON. 
+                /* Pour suivre le rythme. Nous inserons notre PROPRE ControllerEvent :
+                 * 176 indique que le type de l'evenement est ControllerEvent) 
+                 * avec un argument pour le numero d'evenement, 127. 
+                 * Cet evenement ne fera RIEN ! 
+                 * Il n'est le QUE pour que nous ayons un evenement chaque fois qu'une note est jouee. 
+                 * Autrement dit, sa seule raison d'etre est qu'un evenement se declenche 
+                 * que NOUS puissions ecouter (impossible d'ecouter NOTE ON/OFF ). 
+                 * Cet evenement a lieu sur le MeME temps que NOTE ON. 
                  */
                 piste.add(makeEvent(176,1,127,0,i));
                 
@@ -63,17 +63,17 @@ public class MusiqueGeneree extends Musique {
             } // fin de la boucle
 /*
         
-            // ajouter la séquence au séquenceur, fixer le timing et démarrer
+            // ajouter la sequence au sequenceur, fixer le timing et demarrer
             sequenceur.setSequence(seq);
             sequenceur.setTempoInBPM(120);
             sequenceur.start();
             
             */
             
-            /* le panneau de dessin (écouteur) doit s'enregistrer auprès du séquenceur. 
-             * La méthode d'enregistrement accepte l'écouteur 
-             * ET un tableau d'entiers représentant la liste d'événements voulus. 
-             * Ici, nous n'en voulons qu'un, le N° 127.
+            /* le panneau de dessin (ecouteur) doit s'enregistrer aupres du sequenceur. 
+             * La methode d'enregistrement accepte l'ecouteur 
+             * ET un tableau d'entiers representant la liste d'evenements voulus. 
+             * Ici, nous n'en voulons qu'un, le Ne 127.
              */
             //sequenceur.addControllerEventListener(ml, new int[] {127});
             
@@ -82,6 +82,6 @@ public class MusiqueGeneree extends Musique {
         	ex.printStackTrace();
         	return -1;	
         }
-    } // fin de la méthode go()
+    } // fin de la methode go()
 
 }

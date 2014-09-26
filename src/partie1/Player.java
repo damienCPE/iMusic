@@ -5,6 +5,7 @@ import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 
 public class Player {
+    private MusiqueFactory musFac;
 	private Sequencer mySequencer;
 	
 	public Sequencer getMySequence() {
@@ -38,4 +39,25 @@ public class Player {
 		}
 	}
 	
+	public int chargerFichier(String fichier){
+	    Musique mus;
+	    mus = this.musFac.creationMusique(TypeMusique.FICHIER, fichier);
+	    if (mus == null)
+	        return -1;
+	    mus.creationPiste();
+        try {
+            mySequencer.setSequence(mus.getSeq());
+            return 0;
+        } catch (InvalidMidiDataException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return -1;
+        }
+	}
+	
+	public int genererMusique(){
+	    Musique mus;
+	    mus = this.musFac.creationMusique(TypeMusique.GENEREE, "");
+	    return 0;
+	}
 }
