@@ -2,7 +2,7 @@ package partie1;
 
 public class MusiqueFactory {
 	
-	public Musique createMusique(TypeMusique type){
+	public Musique creationMusique(TypeMusique type){
 		Musique musique = null;
 		switch (type) {
 		
