@@ -1,32 +1,41 @@
 package partie1;
 
+import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 
 public class Player {
-	private Sequencer mySequence;
+	private Sequencer mySequencer;
 	
 	public Sequencer getMySequence() {
-		return mySequence;
+		return mySequencer;
 	}
 
 	public void setMySequence(Sequencer mySequence) {
-		this.mySequence = mySequence;
+		this.mySequencer = mySequence;
 	}
 	
 	public void lire(){
-		if(mySequence.isOpen()){
-			mySequence.start();
+		if(mySequencer.isOpen()){
+			mySequencer.start();
 		}
 	}
 	
 	public void stop(){
-		if(mySequence.isRunning()){
-			mySequence.stop();
+		if(mySequencer.isRunning()){
+			mySequencer.stop();
 		}
 	}
 	
-	public void charger(){
-		
+	public int charger(Sequence seq){
+		try {
+			mySequencer.setSequence(seq);
+			return 0;
+		} catch (InvalidMidiDataException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return -1;
+		}
 	}
 	
 }
