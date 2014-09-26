@@ -16,6 +16,8 @@ public class ConsoleListener {
     // Lance le programme IMusic Console
     public void lancerIMusic() {
         int act;
+        
+        // récupère les évènements des actions de l'utilisateur et transmet des ordres au controleur
         do {
             this.cons.afficherMenu();
             act = this.cons.getActionMenu();
@@ -23,7 +25,10 @@ public class ConsoleListener {
             case 1:
                 String f = this.cons.chargerFichier();
                 System.out.println("Chargement du fichier...");
-                this.ctrlr.chargerFichier(f);
+                if(f != "")
+                	this.ctrlr.chargerFichier(f);
+                else
+                	System.out.println("Pas de fichier selectionné");
                 break;
             case 2:
                 System.out.println("G��n��ration en cours...");

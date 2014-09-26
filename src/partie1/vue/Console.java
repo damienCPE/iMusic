@@ -50,8 +50,10 @@ public class Console {
     public void quitterConsole() {
         System.out.println("Merci d'avoir utiliser IMusic !");
     }
-
+    
+    // ouvre une fenetre et récupère le chemin du fichier midi sélectionné
     public String chargerFichier() {
+    	String path = "";
         // Ne fonctionne pas sur Mac (Remplacer par return "./src/audio/pallet-town.mid";)
         JFileChooser chooser = new JFileChooser("./src/audio");
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
@@ -59,8 +61,11 @@ public class Console {
         chooser.setFileFilter(filter);
         int returnVal = chooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            return chooser.getSelectedFile().getAbsolutePath();
+            path = chooser.getSelectedFile().getAbsolutePath();
+            if(path != ""){
+            	return path;
+            }
         }
-        return null;
+        return "";
     }
 }

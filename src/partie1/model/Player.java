@@ -2,7 +2,6 @@ package partie1.model;
 
 import java.util.ArrayList;
 import java.util.Observable;
-
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
@@ -18,7 +17,6 @@ public class Player extends Observable{
     public Player() {
         this.musFac = new MusiqueFactory();
         tabObservateur=new ArrayList();
-        //this.creerSequencer();
     }
 
     // Getter de l'attribut mySequence
@@ -38,7 +36,7 @@ public class Player extends Observable{
         }
     }
 
-    // Arreete la lecture si le sequenceur est fermee
+    // Arrete la lecture si le sequenceur est fermee
     public void stop() {
         if (mySequencer.isRunning()) {
             mySequencer.stop();

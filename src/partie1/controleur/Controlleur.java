@@ -43,7 +43,7 @@ public class Controlleur {
     
     // Quitte le player en fermant tous les elements ouverts
     public int quitterPlayer(){
-    	if(player.getMySequence() != null)
+    	if(player.getMySequence() == null)
     		return -1;
     	if(this.player.getMySequence().isRunning()){
     		ArreterLecture();
