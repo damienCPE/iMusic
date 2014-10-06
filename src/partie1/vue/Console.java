@@ -51,7 +51,7 @@ public class Console {
         System.out.println("Merci d'avoir utiliser IMusic !");
     }
     
-    // ouvre une fenetre et récupère le chemin du fichier midi sélectionné
+    // ouvre une fenetre et recupere le chemin du fichier midi selectionne
     public String chargerFichier() {
     	String path = "";
         // Ne fonctionne pas sur Mac (Remplacer par return "./src/audio/pallet-town.mid";)
