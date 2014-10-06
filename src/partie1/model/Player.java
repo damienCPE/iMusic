@@ -1,12 +1,14 @@
 package partie1.model;
 
-import java.util.ArrayList;
 import java.util.Observable;
+
+import javax.sound.midi.ControllerEventListener;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
+import javax.sound.midi.ShortMessage;
 
 public class Player extends Observable{
     private MusiqueFactory musFac;
