@@ -16,6 +16,7 @@ public class Fenetre extends JFrame {
         this.setSize(1200, 800);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
+        this.setLayout(null);
 
         this.mb = new MenuBarre();
         this.add(mb);

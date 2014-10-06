@@ -1,5 +1,7 @@
 package partie2.vueGraphique;
 
+import java.awt.Color;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -15,6 +17,8 @@ public class MenuBarre extends JPanel {
     JFileChooser chooser;
 
     public MenuBarre() {
+         this.setBackground(Color.WHITE);
+        
         exit = new JButton("");
         this.exit.setToolTipText("Quitter iMusic");
         file = new JButton("");
