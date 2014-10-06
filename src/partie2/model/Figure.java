@@ -26,11 +26,11 @@ public class Figure implements IFigure{
 
         this.graphic.setColor(new Color(r,gr,b));
 
-        this.ht = (int) (Math.random() * maxHeight);
-        this.width = (int) (Math.random() * maxWidth);
+        this.ht = (int) (Math.random() * maxHeight)/2;
+        this.width = (int) (Math.random() * maxWidth)/2;
 
-        this.x = (int) (Math.random() * (maxWidth - this.width));
-        this.y = (int) (Math.random() * (maxHeight - this.ht));
+        this.x = (int) (Math.random() * (maxWidth - this.width))/2;
+        this.y = (int) (Math.random() * (maxHeight - this.ht))/2;
 		
 		return this.graphic;
 	}

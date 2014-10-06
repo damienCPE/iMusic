@@ -73,7 +73,7 @@ public class Controlleur {
     }
 
     public void closeSeq() {
-        if (this.player.getMySequence().isOpen()) {
+        if (this.player.getMySequence() != null && this.player.getMySequence().isOpen()) {
             this.player.getMySequence().close();
             this.player.setMySequence(null);
         }
