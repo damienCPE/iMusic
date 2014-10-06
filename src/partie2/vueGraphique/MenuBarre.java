@@ -12,7 +12,7 @@ import partie2.controleur.IHMListener;
 
 public class MenuBarre extends JPanel {
 
-    JButton exit, file, generer, previous, play, pause, stop, next;
+    JButton exit, file, generer, previous, play, pause, stop, next, squareToCircle, circleToSquare;
     IHMListener il;
     JFileChooser chooser;
 
@@ -35,6 +35,10 @@ public class MenuBarre extends JPanel {
         this.stop.setToolTipText("Arreter la lecture");
         next = new JButton("");
         this.next.setToolTipText("Piste suivante");
+        squareToCircle = new JButton("");
+        this.squareToCircle.setToolTipText("Changer de forme");
+        circleToSquare = new JButton("");
+        this.circleToSquare.setToolTipText("Changer de forme");
 
         this.il = new IHMListener(f);
         
@@ -80,6 +84,14 @@ public class MenuBarre extends JPanel {
         this.next.addActionListener(il);
         this.next.setEnabled(false);
 
+        this.add(squareToCircle);
+        this.squareToCircle.setIcon(new ImageIcon("./src/images/squareToCircle.png"));
+        this.squareToCircle.addActionListener(il);
+
+        this.add(circleToSquare);
+        this.circleToSquare.setIcon(new ImageIcon("./src/images/circleToSquare.png"));
+        this.circleToSquare.addActionListener(il);
+        this.circleToSquare.setVisible(false);
     }
 
     public JButton getFileBut() {
@@ -114,6 +126,14 @@ public class MenuBarre extends JPanel {
         return this.exit;
     }
 
+    public JButton getSquareToCircle() {
+        return this.squareToCircle;
+    }
+
+    public JButton getCircleToSquare() {
+        return this.circleToSquare;
+    }
+    
     // ouvre une fenetre et recupere le chemin du fichier midi selectionne
     public String chargerFichier() {
         String path = "";

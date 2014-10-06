@@ -35,7 +35,6 @@ public abstract class Musique implements IMusique{
 	public void createEvents(){
 	 // maintenant creer deux evenements midi (contenant un message midi)
         int r = 0;
-        System.out.println("Creation des evenements");
         for (int i = 0; i < 100; i+= 4) {
 
             r = (int) ((Math.random() * 50) + 1);

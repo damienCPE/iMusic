@@ -13,6 +13,7 @@ public class PetitsCarres extends JPanel {
     FigureFactory figFact;
     PetitsCarresObserver obs;
     public boolean event = false;
+    private boolean figType = true;
 
     public PetitsCarres() {
         super();
@@ -26,9 +27,17 @@ public class PetitsCarres extends JPanel {
 
     public void paintComponent(Graphics g) {
         if (this.event == true) {
-            figFact.creationFigure(EnumFigure.CARRE, g, this.getHeight(),
-                    this.getWidth());
+            if (this.figType)
+                figFact.creationFigure(EnumFigure.CARRE, g, this.getHeight(),
+                        this.getWidth());
+            else
+                figFact.creationFigure(EnumFigure.OVAL, g, this.getHeight(),
+                        this.getWidth());
             this.event = false;
         }
+    }
+
+    public void setFigType(boolean b) {
+        this.figType = b;
     }
 }

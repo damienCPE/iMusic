@@ -3,6 +3,8 @@ package partie2.controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+
 import partie1.controleur.Controlleur;
 import partie2.vueGraphique.Fenetre;
 
@@ -51,6 +53,16 @@ public class IHMListener implements ActionListener {
             f.getMenuBarre().getPauseBut().setVisible(false);
             f.getMenuBarre().getPlayBut().setVisible(true);
             ctrlr.closeSeq();
+        }
+        if (e.getSource() == f.getMenuBarre().getSquareToCircle()) {
+            f.getMenuBarre().getSquareToCircle().setVisible(false);
+            f.getMenuBarre().getCircleToSquare().setVisible(true);
+            f.getPetitsCarres().setFigType(false);
+        }
+        if (e.getSource() == f.getMenuBarre().getCircleToSquare()) {
+            f.getMenuBarre().getCircleToSquare().setVisible(false);
+            f.getMenuBarre().getSquareToCircle().setVisible(true);
+            f.getPetitsCarres().setFigType(true);
         }
     }
 }
