@@ -2,20 +2,25 @@ package partie2.vueGraphique;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import partie2.controleur.IHMListener;
 
 public class MenuBarre extends JPanel {
 
-    JButton exit, home, previous, play, pause, stop, next;
+    JButton exit, file, generer, previous, play, pause, stop, next;
     IHMListener il;
+    JFileChooser chooser;
 
     public MenuBarre() {
         exit = new JButton("");
         this.exit.setToolTipText("Quitter iMusic");
-        home = new JButton("");
-        this.home.setToolTipText("Selectionner un fichier");
+        file = new JButton("");
+        this.file.setToolTipText("Selectionner un fichier");
+        generer = new JButton("");
+        this.generer.setToolTipText("Genere une piste audio");
         previous = new JButton("");
         this.previous.setToolTipText("Piste precedente");
         play = new JButton("");
@@ -28,73 +33,93 @@ public class MenuBarre extends JPanel {
         this.next.setToolTipText("Piste suivante");
 
         this.il = new IHMListener(this);
+        
+        //Création du JFileChooser
+        chooser = new JFileChooser("./src/audio");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "Fichier audio MIDI", "mid");
+        chooser.setFileFilter(filter);
 
         this.add(exit);
-        this.exit.setIcon(new ImageIcon("./src/images/exit.png"));
-        // this.exit.setBounds(0,0,80,80);
+        this.exit.setIcon(new ImageIcon("./src/images/exit"
+                + ".png"));
         this.exit.addActionListener(il);
 
-        this.add(home);
-        this.home.setIcon(new ImageIcon("./src/images/home-copie.png"));
-        // this.home.setBounds(100,0,80,80);
-        this.home.addActionListener(il);
+        this.add(file);
+        this.file.setIcon(new ImageIcon("./src/images/file.png"));
+        this.file.addActionListener(il);
+
+        this.add(generer);
+        this.generer.setIcon(new ImageIcon("./src/images/generer.png"));
+        this.generer.addActionListener(il);
 
         this.add(previous);
-        this.previous.setIcon(new ImageIcon("./src/images/previous-copie.png"));
-        // this.previous.setBounds(800/2-150,0,80,80);
+        this.previous.setIcon(new ImageIcon("./src/images/previous.png"));
         this.previous.addActionListener(il);
         this.previous.setEnabled(false);
 
         this.add(play);
-        this.play.setIcon(new ImageIcon("./src/images/play-copie.png"));
-        // this.play.setBounds(800/2-50,0,80,80);
+        this.play.setIcon(new ImageIcon("./src/images/play.png"));
         this.play.addActionListener(il);
 
         this.add(pause);
-        this.pause.setIcon(new ImageIcon("./src/images/pause-copie.png"));
-        // this.pause.setBounds(800/2-50,0,80,80);
+        this.pause.setIcon(new ImageIcon("./src/images/pause.png"));
         this.pause.addActionListener(il);
         this.pause.setVisible(false);
 
         this.add(stop);
-        this.stop.setIcon(new ImageIcon("./src/images/stop-copie.png"));
-        // this.stop.setBounds(800/2+50,0,80,80);
+        this.stop.setIcon(new ImageIcon("./src/images/stop.png"));
         this.stop.addActionListener(il);
 
         this.add(next);
-        this.next.setIcon(new ImageIcon("./src/images/next-copie.png"));
-        // this.next.setBounds(800/2+150,0,80,80);
+        this.next.setIcon(new ImageIcon("./src/images/next.png"));
         this.next.addActionListener(il);
         this.next.setEnabled(false);
 
     }
 
-    public JButton getHhome() {
-        return this.home;
+    public JButton getFileBut() {
+        return this.file;
     }
 
-    public JButton getPrevious() {
+    public JButton getGenererBut() {
+        return this.generer;
+    }
+
+    public JButton getPreviousBut() {
         return this.previous;
     }
 
-    public JButton getPlay() {
+    public JButton getPlayBut() {
         return this.play;
     }
 
-    public JButton getPause() {
+    public JButton getPauseBut() {
         return this.pause;
     }
 
-    public JButton getStop() {
+    public JButton getStopBut() {
         return this.stop;
     }
 
-    public JButton getNext() {
+    public JButton getNextBut() {
         return this.next;
     }
 
-    public JButton getExit() {
+    public JButton getExitBut() {
         return this.exit;
     }
 
+    // ouvre une fenetre et recupere le chemin du fichier midi selectionne
+    public String chargerFichier() {
+        String path = "";
+        int returnVal = chooser.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            path = chooser.getSelectedFile().getAbsolutePath();
+            if(path != ""){
+                return path;
+            }
+        }
+        return "";
+    }
 }

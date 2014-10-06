@@ -21,28 +21,37 @@ public class IHMListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //exit, home, previous, play, pause, stop, next
-        if(e.getSource() == mb.getExit()) {
+        String str;
+        if(e.getSource() == mb.getExitBut()) {
             ctrlr.quitterPlayer();
             System.exit(0);
         }
-        if(e.getSource() == mb.getPlay()) {
-            ctrlr.DemarrerLecture();
+        if(e.getSource() == mb.getFileBut()) {
+            str = mb.chargerFichier();
+            ctrlr.chargerFichier(str);
         }
-        if(e.getSource() == mb.getPlay()) {
-            ctrlr.DemarrerLecture();
+        if(e.getSource() == mb.getGenererBut()) {
+            ctrlr.generer();
         }
-        if(e.getSource() == mb.getPlay()) {
-            ctrlr.DemarrerLecture();
+        if(e.getSource() == mb.getPreviousBut()) {
+            //TODO
         }
-        if(e.getSource() == mb.getPlay()) {
-            ctrlr.DemarrerLecture();
+        if(e.getSource() == mb.getPlayBut()) {
+            if(ctrlr.DemarrerLecture() == 0){
+                mb.getPlayBut().setVisible(false);
+                mb.getPauseBut().setVisible(true);
+            }
         }
-        if(e.getSource() == mb.getPlay()) {
-            ctrlr.DemarrerLecture();
+        if(e.getSource() == mb.getPauseBut()) {
+            ctrlr.ArreterLecture();
+            mb.getPauseBut().setVisible(false);
+            mb.getPlayBut().setVisible(true);
         }
-        if(e.getSource() == mb.getPlay()) {
-            ctrlr.DemarrerLecture();
+        if(e.getSource() == mb.getStopBut()) {
+            ctrlr.ArreterLecture();
+            mb.getPauseBut().setVisible(false);
+            mb.getPlayBut().setVisible(true);
+            ctrlr.closeSeq();
         }
     }
 }
