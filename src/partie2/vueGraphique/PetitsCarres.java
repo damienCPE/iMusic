@@ -14,7 +14,7 @@ public class PetitsCarres extends JPanel {
     public PetitsCarres(){
         super();
         FigFact = new Figure();
-        obs = new PetitsCarresObserver();
+        obs = new PetitsCarresObserver(this);
     }
 
     public Observer getObserver(){

@@ -18,12 +18,12 @@ public class Fenetre extends JFrame {
         this.setResizable(false);
         this.setLayout(null);
 
+        this.pc = new PetitsCarres();
         this.mb = new MenuBarre(this);
         this.add(mb);
         mb.setBounds(0, 0, 1200, 120);
-        this.pc = new PetitsCarres();
-        pc.setBounds(0, 120, 1200, 680);
         this.add(pc);
+        pc.setBounds(0, 120, 1200, 680);
 
         this.setVisible(true);
     }
