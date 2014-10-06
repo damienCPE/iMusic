@@ -21,7 +21,7 @@ public class MusiqueGeneree extends Musique {
             // creer une sequence et une piste
         	
             this.setSeq(new Sequence(Sequence.PPQ, 4));
-            Track piste = this.getSeq().createTrack();
+            this.setPiste(this.getSeq().createTrack());
 
             // maintenant creer deux evenements midi (contenant un message midi)
             int r = 0;
@@ -32,7 +32,7 @@ public class MusiqueGeneree extends Musique {
                 // ajouter les evenements de la piste
                 
                 // 144 = noteOn, 1 = piano, 44 = la note, 100 = velocite
-                piste.add(makeEvent(144,1,r,100,i));
+                this.getPiste().add(makeEvent(144,1,r,100,i));
                 
                 /* Pour suivre le rythme. Nous inserons notre PROPRE ControllerEvent :
                  * 176 indique que le type de l'evenement est ControllerEvent) 
@@ -43,10 +43,10 @@ public class MusiqueGeneree extends Musique {
                  * que NOUS puissions ecouter (impossible d'ecouter NOTE ON/OFF ). 
                  * Cet evenement a lieu sur le MeME temps que NOTE ON. 
                  */
-                piste.add(makeEvent(176,1,127,0,i));
+                this.getPiste().add(makeEvent(176,1,127,0,i));
                 
                 // 128 = noteOff                
-                piste.add(makeEvent(128,1,r,100,i + 2));
+                this.getPiste().add(makeEvent(128,1,r,100,i + 2));
                 
             }
             

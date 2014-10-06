@@ -1,19 +1,17 @@
 package partie1.model;
 
-import java.util.Observable;
-
-import javax.sound.midi.ControllerEventListener;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
-import javax.sound.midi.ShortMessage;
 
-public class Player extends Observable{
+import partie2.model.MusicListener;
+
+public class Player {
     private MusiqueFactory musFac;
     private Sequencer mySequencer;
-    
+
     // Constructeur
     public Player() {
         this.musFac = new MusiqueFactory();
@@ -53,11 +51,11 @@ public class Player extends Observable{
             return -1;
         }
     }
-    
+
     // Ferme le sequenceur
-    public int quitter(){
-    	mySequencer.close();
-    	return 0;
+    public int quitter() {
+        mySequencer.close();
+        return 0;
     }
 
     // Creer le sequenceur
@@ -65,12 +63,19 @@ public class Player extends Observable{
         try {
             this.mySequencer = MidiSystem.getSequencer();
             mySequencer.open();
+            (new MusicListener(this)).makeEvent();
         } catch (MidiUnavailableException e) {
             e.printStackTrace();
         }
     }
 
-    // Creer la piste audio a partir du fichier passe en parametre et la charge dans le sequenceur
+    // Accesseur du sequenceur
+    public Sequencer getSequencer() {
+        return this.mySequencer;
+    }
+
+    // Creer la piste audio a partir du fichier passe en parametre et la charge
+    // dans le sequenceur
     public int chargerFichier(String fichier) {
         Musique mus;
         this.creerSequencer();
@@ -88,7 +93,8 @@ public class Player extends Observable{
         }
     }
 
-    // Creer la piste audio a partir d'un algorithme et la charge dans le sequenceur
+    // Creer la piste audio a partir d'un algorithme et la charge dans le
+    // sequenceur
     public int genererMusique() {
         Musique mus;
         this.creerSequencer();
