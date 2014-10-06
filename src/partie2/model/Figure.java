@@ -29,8 +29,8 @@ public class Figure implements IFigure{
         this.ht = (int) (Math.random() * maxHeight);
         this.width = (int) (Math.random() * maxWidth);
 
-        this.x = (int) (Math.random() * (maxHeight - this.ht));
-        this.y = (int) (Math.random() * (maxWidth - this.width));
+        this.x = (int) (Math.random() * (maxWidth - this.width));
+        this.y = (int) (Math.random() * (maxHeight - this.ht));
 		
 		return this.graphic;
 	}
