@@ -12,13 +12,17 @@ public class Figure implements IFigure{
 	protected int width;
 	protected int x;
 	protected int y;
+	
+	public Figure(){}
 
 	@Override
-	public Graphics creationFigure(int maxHeight, int maxWidth, int height, int width) {
+	public Graphics creationFigure(Graphics g,int maxHeight, int maxWidth, int height, int width) {
 		
 		this.r = (int) (Math.random() * 250);
         this.gr = (int) (Math.random() * 250);
         this.b = (int) (Math.random() * 250);
+        
+        this.graphic = g;
 
         this.graphic.setColor(new Color(r,gr,b));
 
