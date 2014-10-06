@@ -1,4 +1,5 @@
-package partie1.model;
+package partie2.model;
+
 
 public class FigureFactory {
 	public FigureFactory(){};

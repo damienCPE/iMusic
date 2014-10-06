@@ -1,4 +1,4 @@
-package partie1.model;
+package partie2.model;
 
 import java.awt.Color;
 import java.awt.Graphics;
