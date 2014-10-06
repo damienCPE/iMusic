@@ -16,7 +16,7 @@ public class Figure implements IFigure{
 	public Figure(){}
 
 	@Override
-	public Graphics creationFigure(Graphics g,int maxHeight, int maxWidth, int height, int width) {
+	public Graphics creationFigure(Graphics g,int maxHeight, int maxWidth) {
 		
 		this.r = (int) (Math.random() * 250);
         this.gr = (int) (Math.random() * 250);
@@ -29,8 +29,8 @@ public class Figure implements IFigure{
         this.ht = (int) (Math.random() * maxHeight);
         this.width = (int) (Math.random() * maxWidth);
 
-        this.x = (int) (Math.random() * maxHeight - height);
-        this.y = (int) (Math.random() * maxWidth - width);
+        this.x = (int) (Math.random() * (maxHeight - this.ht));
+        this.y = (int) (Math.random() * (maxWidth - this.width));
 		
 		return this.graphic;
 	}
