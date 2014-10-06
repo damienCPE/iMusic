@@ -1,13 +1,13 @@
 package partie2.vueGraphique;
 
-import java.awt.Color;
+import java.util.Observer;
 
 import javax.swing.JFrame;
 
 public class Fenetre extends JFrame {
 
-    MenuBarre mb;
-    PetitsCarres pc;
+    private MenuBarre mb;
+    private PetitsCarres pc;
 
     public Fenetre() {
         super();
@@ -18,7 +18,7 @@ public class Fenetre extends JFrame {
         this.setResizable(false);
         this.setLayout(null);
 
-        this.mb = new MenuBarre();
+        this.mb = new MenuBarre(this);
         this.add(mb);
         mb.setBounds(0, 0, 1200, 120);
         this.pc = new PetitsCarres();
@@ -26,5 +26,13 @@ public class Fenetre extends JFrame {
         this.add(pc);
 
         this.setVisible(true);
+    }
+    
+    public MenuBarre getMenuBarre() {
+        return this.mb;
+    }
+
+    public PetitsCarres getPetitsCarres() {
+        return this.pc;
     }
 }

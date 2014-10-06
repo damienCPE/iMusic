@@ -63,7 +63,6 @@ public class Player {
         try {
             this.mySequencer = MidiSystem.getSequencer();
             mySequencer.open();
-            (new MusicListener(this)).makeEvent();
         } catch (MidiUnavailableException e) {
             e.printStackTrace();
         }

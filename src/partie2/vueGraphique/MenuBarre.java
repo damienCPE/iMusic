@@ -16,7 +16,7 @@ public class MenuBarre extends JPanel {
     IHMListener il;
     JFileChooser chooser;
 
-    public MenuBarre() {
+    public MenuBarre(Fenetre f) {
          this.setBackground(Color.WHITE);
         
         exit = new JButton("");
@@ -36,7 +36,7 @@ public class MenuBarre extends JPanel {
         next = new JButton("");
         this.next.setToolTipText("Piste suivante");
 
-        this.il = new IHMListener(this);
+        this.il = new IHMListener(f);
         
         //Création du JFileChooser
         chooser = new JFileChooser("./src/audio");

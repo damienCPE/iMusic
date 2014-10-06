@@ -1,9 +1,13 @@
 package partie1.controleur;
 
+import java.util.Observer;
+
 import partie1.model.Player;
+import partie2.model.MusicListener;
 
 public class Controlleur {
     private Player player;
+    private MusicListener musList;
 
     // Getter de l'attribut player
     public Player getPlayer() {
@@ -19,6 +23,7 @@ public class Controlleur {
     public Controlleur() {
         super();
         this.player = new Player();
+        this.musList = new MusicListener();
     }
 
     // Lance la lecture
@@ -41,6 +46,7 @@ public class Controlleur {
     // Charge le fichier midi passer en parametre
     public int chargerFichier(String f) {
         this.player.chargerFichier(f);
+        this.musList.makeEvent(this.player);
         return 0;
     }
 
@@ -62,6 +68,7 @@ public class Controlleur {
     // Appel la generation par algorithme d'une piste audio
     public int generer() {
         this.player.genererMusique();
+        this.musList.makeEvent(this.player);
         return 0;
     }
 
@@ -70,5 +77,9 @@ public class Controlleur {
             this.player.getMySequence().close();
             this.player.setMySequence(null);
         }
+    }
+    
+    public void addObserver(Observer obs){
+        this.musList.addObserver(obs);
     }
 }

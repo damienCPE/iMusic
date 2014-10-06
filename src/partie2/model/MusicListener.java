@@ -8,12 +8,9 @@ import javax.sound.midi.ShortMessage;
 import partie1.model.Player;
 
 public class MusicListener extends Observable implements ControllerEventListener {
-
-    Player pl;
     
-    public MusicListener (Player p){
+    public MusicListener (){
         super();
-        this.pl = p;
     }
     
     @Override
@@ -21,7 +18,7 @@ public class MusicListener extends Observable implements ControllerEventListener
         System.out.println("Test");
     }
     
-    public void makeEvent(){
-        this.pl.getSequencer().addControllerEventListener(this, new int[] {127});
+    public void makeEvent(Player p){
+        p.getSequencer().addControllerEventListener(this, new int[] {127});
     }
 }
