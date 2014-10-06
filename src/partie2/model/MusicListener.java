@@ -15,7 +15,9 @@ public class MusicListener extends Observable implements ControllerEventListener
     
     @Override
     public void controlChange(ShortMessage event) {
-        System.out.println("Test");
+        setChanged();
+        System.out.println(this.countObservers());
+        this.notifyObservers();
     }
     
     public void makeEvent(Player p){

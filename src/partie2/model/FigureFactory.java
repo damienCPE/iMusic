@@ -6,7 +6,7 @@ import java.awt.Graphics;
 public class FigureFactory {
 	public FigureFactory(){};
 	
-	public Figure creationFigure(EnumFigure type, Graphics g,int maxHeight, int maxWidth){
+	public void creationFigure(EnumFigure type, Graphics g, int maxHeight, int maxWidth){
 		Figure figure = null;
 		switch (type) {
 		case CARRE:
@@ -20,6 +20,5 @@ public class FigureFactory {
 			break;
 		}
 		figure.creationFigure(g, maxHeight, maxWidth);
-		return figure;
 	}
 }

@@ -15,7 +15,7 @@ public class IHMListener implements ActionListener {
         super();
         this.f = f;
         this.ctrlr = new Controlleur();
-        this.ctrlr.addObserver(this.f.getPetitsCarres().getObserver());
+        this.ctrlr.addObserver(this.f.getPetitsCarres().getPetitsCarresObserver());
     }
 
     @Override
