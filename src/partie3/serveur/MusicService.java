@@ -5,19 +5,19 @@ import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RMIServerSocketFactory;
 import java.rmi.server.UnicastRemoteObject;
 
-public class ServeurRMI extends UnicastRemoteObject implements IServeurRMI {
+public class MusicService extends UnicastRemoteObject implements IService {
 
-	protected ServeurRMI() throws RemoteException {
+	protected MusicService() throws RemoteException {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	protected ServeurRMI(int port) throws RemoteException {
+	protected MusicService(int port) throws RemoteException {
 		super(port);
 		// TODO Auto-generated constructor stub
 	}
 
-	protected ServeurRMI(int port, RMIClientSocketFactory csf,
+	protected MusicService(int port, RMIClientSocketFactory csf,
 			RMIServerSocketFactory ssf) throws RemoteException {
 		super(port, csf, ssf);
 		// TODO Auto-generated constructor stub
