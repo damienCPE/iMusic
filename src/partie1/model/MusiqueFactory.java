@@ -1,5 +1,7 @@
 package partie1.model;
 
+import partie3.model.MusiqueFichierServer;
+
 public class MusiqueFactory {
 	
     public MusiqueFactory(){}
@@ -18,7 +20,10 @@ public class MusiqueFactory {
         case GENEREE:
             musique = new MusiqueGeneree();
             break;
-        }
+	    case SERVER:
+	        musique = new MusiqueFichierServer(s);
+	        break;
+	    }
         return musique;
     }
 	
