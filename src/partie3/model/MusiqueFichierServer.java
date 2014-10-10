@@ -16,10 +16,8 @@ public class MusiqueFichierServer extends Musique {
 		this.chemin = s;
 		IService stub;
 		try {
-			// Initialisation du registry sur le port 1099
 			Registry registry = LocateRegistry.getRegistry(1099);
 
-			// Récupération du stub lié au serveur
 			this.stub = (IService) registry.lookup("MusicService");
 		} catch (Exception e) {
 
@@ -29,7 +27,6 @@ public class MusiqueFichierServer extends Musique {
 
 	@Override
 	public int creationPiste() {
-		// creer une sequence et une piste
 		try {
 			chemin = this.stub.getInformation();
 			this.setSeq(MidiSystem.getSequence(new File(chemin)));
