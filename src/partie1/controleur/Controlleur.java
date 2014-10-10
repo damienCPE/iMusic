@@ -6,8 +6,8 @@ import partie1.model.Player;
 import partie2.model.MusicListener;
 
 public class Controlleur {
-    private Player player;
-    private MusicListener musList;
+    protected Player player;
+    protected MusicListener musList;
 
     // Getter de l'attribut player
     public Player getPlayer() {
