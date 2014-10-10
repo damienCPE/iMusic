@@ -22,8 +22,10 @@ public class IHMListenerCS extends IHMListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
+        String str;
         if (e.getSource() == this.fcs.getMenuBarreCS().getButServeur()) {
-            ctrlrcs.chargerFichier(this.fcs.getMenuBarre().chargerFichier());
+            str = this.fcs.getMenuBarre().chargerFichier();
+            ctrlrcs.chargerFichierServeur(str);
         }
     }
 }

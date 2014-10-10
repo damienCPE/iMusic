@@ -8,7 +8,7 @@ public class FenetreCS extends Fenetre {
     
     public FenetreCS() {
         super();
-        mbcs = new MenuBarreCS(this);
+        mbcs = new MenuBarreCS(this, this);
     }
 
     public MenuBarreCS getMenuBarreCS() {

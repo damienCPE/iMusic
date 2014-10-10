@@ -8,7 +8,7 @@ public class MainServeur {
     public static void main(String[] args) {
         try {
 
-            // Stockage du port pour reutilisation
+            // Stockage du port
             int port = 1099;
             
             // Creation de l'objet MusicService
