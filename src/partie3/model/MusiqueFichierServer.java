@@ -1,10 +1,13 @@
 package partie3.model;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Track;
+
 import partie1.model.Musique;
 import partie3.serveur.IService;
 
@@ -28,8 +31,8 @@ public class MusiqueFichierServer extends Musique {
 	@Override
 	public int creationPiste() {
 		try {
-			chemin = this.stub.getInformation();
-			this.setSeq(MidiSystem.getSequence(new File(chemin)));
+			byte[] bytes = this.stub.getInformation(chemin);
+			this.setSeq(MidiSystem.getSequence(new ByteArrayInputStream(bytes)));
 		} catch (Exception e) {
 			return -1;
 		}
