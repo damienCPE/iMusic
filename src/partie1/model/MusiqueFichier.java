@@ -24,11 +24,11 @@ public class MusiqueFichier extends Musique {
 		} catch (Exception e) {
 			return -1;
 		}
-        
-        //Sequence seq = new Sequence(Sequence.PPQ, 4);
-        Track piste = this.getSeq().createTrack();
-        
-        return 0;
+
+		// Sequence seq = new Sequence(Sequence.PPQ, 4);
+		Track piste = this.getSeq().createTrack();
+
+		return 0;
 	}
 
 }
