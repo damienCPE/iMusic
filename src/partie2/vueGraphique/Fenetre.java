@@ -21,9 +21,9 @@ public class Fenetre extends JFrame {
         this.pc = new PetitsCarres();
         this.mb = new MenuBarre(this);
         this.add(mb);
-        mb.setBounds(0, 0, 1200, 120);
+        mb.setBounds(0, 0, this.getWidth(), 120);
         this.add(pc);
-        pc.setBounds(0, 120, 1200, 680);
+        pc.setBounds(0, 120, this.getWidth(), 680);
 
         this.setVisible(true);
     }
