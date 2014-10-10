@@ -9,8 +9,8 @@ import javax.sound.midi.Sequencer;
 import partie2.model.MusicListener;
 
 public class Player {
-    private MusiqueFactory musFac;
-    private Sequencer mySequencer;
+    public MusiqueFactory musFac;
+    protected Sequencer mySequencer;
 
     // Constructeur
     public Player() {
@@ -59,7 +59,7 @@ public class Player {
     }
 
     // Creer le sequenceur
-    private void creerSequencer() {
+    public void creerSequencer() {
         try {
             this.mySequencer = MidiSystem.getSequencer();
             mySequencer.open();
