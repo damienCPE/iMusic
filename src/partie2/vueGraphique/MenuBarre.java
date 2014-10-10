@@ -12,9 +12,9 @@ import partie2.controleur.IHMListener;
 
 public class MenuBarre extends JPanel {
 
-    JButton exit, file, generer, previous, play, pause, stop, next, squareToCircle, circleToSquare;
-    IHMListener il;
-    JFileChooser chooser;
+    protected JButton exit, file, generer, previous, play, pause, stop, next, squareToCircle, circleToSquare;
+    protected IHMListener il;
+    protected JFileChooser chooser;
 
     public MenuBarre(Fenetre f) {
          this.setBackground(Color.WHITE);

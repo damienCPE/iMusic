@@ -1,9 +1,9 @@
 package partie3.client;
 
-import partie2.vueGraphique.Fenetre;
+import partie3.vue.FenetreCS;
 
 public class Client {
 	public static void main(String[] args) {
-        Fenetre f = new Fenetre();
+        FenetreCS f = new FenetreCS();
     }
 }

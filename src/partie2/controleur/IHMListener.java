@@ -10,8 +10,8 @@ import partie2.vueGraphique.Fenetre;
 
 public class IHMListener implements ActionListener {
 
-    Fenetre f;
-    Controlleur ctrlr;
+    protected Fenetre f;
+    protected Controlleur ctrlr;
 
     public IHMListener(Fenetre f) {
         super();
