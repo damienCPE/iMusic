@@ -1,36 +1,27 @@
 package partie3.serveur;
 
-import java.net.InetAddress;
-import java.net.MalformedURLException;
-import java.net.UnknownHostException;
-import java.rmi.Naming;
-import java.rmi.RMISecurityManager;
-import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 
 public class MainServeur {
     public static void main(String[] args) {
         try {
-            LocateRegistry.createRegistry(1099);
 
-            System.out.println("Mise en place du Security Manager ...");
-            if (System.getSecurityManager() == null) {
-                System.setSecurityManager(new RMISecurityManager());
-            }
+            // Stockage du port pour reutilisation
+            int port = 1099;
+            
+            // Creation de l'objet MusicService
+            IService service = (IService) UnicastRemoteObject.exportObject(new MusicService(), port);
 
-            MusicService informationImpl = new MusicService();
+            // Ouverture du port
+            Registry registry = LocateRegistry.createRegistry(port);
 
-            String url = "rmi://" + InetAddress.getLocalHost().getHostAddress()
-                    + "/TestRMI";
-            System.out.println("Enregistrement de l'objet avec l'url : " + url);
-            Naming.rebind(url, informationImpl);
+            // Bind du service au mot-clé "MusicService"
+            registry.rebind("MusicService", service);
 
             System.out.println("Serveur lance");
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (UnknownHostException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

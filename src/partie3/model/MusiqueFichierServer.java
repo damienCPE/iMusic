@@ -8,21 +8,21 @@ import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Track;
 
 import partie1.model.Musique;
-import partie3.serveur.IServeurRMI;
+import partie3.serveur.IService;
 
 public class MusiqueFichierServer extends Musique {
 	String chemin;
-	private IServeurRMI stub;
+	private IService stub;
 
 	public MusiqueFichierServer(String s) {
 		this.chemin = s;
-		IServeurRMI stub;
+		IService stub;
 		try {
 			// Initialisation du registry sur le port 1099
 			Registry registry = LocateRegistry.getRegistry(1099);
 
-			// Récupération du stub lié au serveur
-			this.stub = (IServeurRMI) registry.lookup("MusicService");
+			// Recuperation du stub lie au serveur
+			this.stub = (IService) registry.lookup("MusicService");
 		} catch (Exception e) {
 
 		}
