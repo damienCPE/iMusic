@@ -20,6 +20,6 @@ public class MusicListener extends Observable implements ControllerEventListener
     }
     
     public void makeEvent(Player p){
-        p.getSequencer().addControllerEventListener(this, new int[] {127});
+        p.addControllerEventListener(this);
     }
 }

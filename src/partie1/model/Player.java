@@ -9,7 +9,7 @@ import javax.sound.midi.Sequencer;
 import partie2.model.MusicListener;
 
 public class Player {
-    public MusiqueFactory musFac;
+    protected MusiqueFactory musFac;
     protected Sequencer mySequencer;
 
     // Constructeur
@@ -69,9 +69,9 @@ public class Player {
     }
 
     // Accesseur du sequenceur
-    public Sequencer getSequencer() {
+    /*public Sequencer getSequencer() {
         return this.mySequencer;
-    }
+    }*/
 
     // Creer la piste audio a partir du fichier passe en parametre et la charge
     // dans le sequenceur
@@ -108,5 +108,10 @@ public class Player {
             e.printStackTrace();
             return -1;
         }
+    }
+
+    public void addControllerEventListener(MusicListener musicListener) {
+        // TODO Auto-generated method stub
+        mySequencer.addControllerEventListener(musicListener, new int[] {127});
     }
 }
