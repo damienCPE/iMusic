@@ -26,8 +26,18 @@ public class Player {
     public void setMySequence(Sequencer mySequence) {
         this.mySequencer = mySequence;
     }
+    
+    // Getter de l'attribut musFac
+    public MusiqueFactory getMusFac() {
+		return musFac;
+	}
 
-    // Lance la lecture du fichier si le sequenceur est ouvert
+    // Setter de l'attribut musFac
+	public void setMusFac(MusiqueFactory musFac) {
+		this.musFac = musFac;
+	}
+
+	// Lance la lecture du fichier si le sequenceur est ouvert
     public void lire() {
         if (mySequencer.isOpen()) {
             mySequencer.start();
@@ -112,6 +122,10 @@ public class Player {
 
     public void addControllerEventListener(MusicListener musicListener) {
         // TODO Auto-generated method stub
+    	if(musicListener == null)
+    		System.out.println("musicListener null");
+    	if(mySequencer == null)
+    		System.out.println("mySequencer null");
         mySequencer.addControllerEventListener(musicListener, new int[] {127});
     }
 }

@@ -20,13 +20,18 @@ public class PlayerCS extends Player{
     public int chargerFichierServeur(String fichier) {
         Musique mus;
         this.player.creerSequencer();
-        mus = this.player.musFac.creationMusique(TypeMusique.SERVER, fichier);
+        if(this.player.getMySequence() == null)
+        	System.out.println("creation sequence null");
+        mus = this.player.getMusFac().creationMusique(TypeMusique.SERVER, fichier);
         if (mus == null){
         	return -1;
         }
             
         mus.creationPiste();
         try {
+        	System.out.println("creation sequence");
+        	if(this.player.getMySequence() == null)
+        		System.out.println("creation pite null");
         	this.player.getMySequence().setSequence(mus.getSeq());
         	this.player.getMySequence().setTempoInBPM(120);
             return 0;
