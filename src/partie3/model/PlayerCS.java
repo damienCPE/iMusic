@@ -10,23 +10,25 @@ public class PlayerCS extends Player{
 	
 	protected Player player;
 
-	public PlayerCS() {
+	public PlayerCS(Player player) {
 		super();
-		this.player = new Player();
+		this.player = player;
 	}
 	
 	// Creer la piste audio a partir du fichier passe en parametre et la charge
     // dans le sequenceur
     public int chargerFichierServeur(String fichier) {
         Musique mus;
-        this.creerSequencer();
-        mus = this.musFac.creationMusique(TypeMusique.SERVER, fichier);
-        if (mus == null)
-            return -1;
+        this.player.creerSequencer();
+        mus = this.player.musFac.creationMusique(TypeMusique.SERVER, fichier);
+        if (mus == null){
+        	return -1;
+        }
+            
         mus.creationPiste();
         try {
-            mySequencer.setSequence(mus.getSeq());
-            mySequencer.setTempoInBPM(120);
+        	this.player.getMySequence().setSequence(mus.getSeq());
+        	this.player.getMySequence().setTempoInBPM(120);
             return 0;
         } catch (InvalidMidiDataException e) {
             e.printStackTrace();

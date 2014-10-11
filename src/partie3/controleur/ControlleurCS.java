@@ -10,12 +10,12 @@ public class ControlleurCS extends Controlleur {
 	public ControlleurCS() {
 		super();
 		this.controlleur = new Controlleur();
-		this.playercs = new PlayerCS();
+		this.playercs = new PlayerCS(controlleur.getPlayer());
 	}
 	
     // Charge le fichier midi passer en parametre
     public int chargerFichierServeur(String f) {
-        this.playercs.chargerFichier(f);
+        this.playercs.chargerFichierServeur(f);
         this.musList.makeEvent(this.playercs);
         return 0;
     }
