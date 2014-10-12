@@ -28,6 +28,8 @@ public class Controlleur {
 
     // Lance la lecture
     public int DemarrerLecture() {
+    	if(player.getMySequence() == null)
+    		System.out.println("player.getMySequence() null");
         if (player.getMySequence() != null) {
             player.lire();
             return 0;

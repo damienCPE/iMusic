@@ -18,7 +18,7 @@ public class MenuBarreCS extends MenuBarre {
         mb = f.getMenuBarre();
         
         //Creation listener
-        this.ilcs = new IHMListenerCS(f, fcs);
+        this.ilcs = new IHMListenerCS(f, fcs, mb.getIl());
         
         //Ajout du nouveau bouton
         this.serveur = new JButton("");

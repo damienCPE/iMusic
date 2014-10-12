@@ -19,8 +19,19 @@ public class IHMListener implements ActionListener {
         this.ctrlr = new Controlleur();
         this.ctrlr.addObserver(this.f.getPetitsCarres().getPetitsCarresObserver());
     }
+    
 
-    @Override
+    public Controlleur getCtrlr() {
+		return ctrlr;
+	}
+
+
+	public void setCtrlr(Controlleur ctrlr) {
+		this.ctrlr = ctrlr;
+	}
+
+
+	@Override
     public void actionPerformed(ActionEvent e) {
         String str;
         if (e.getSource() == f.getMenuBarre().getExitBut()) {

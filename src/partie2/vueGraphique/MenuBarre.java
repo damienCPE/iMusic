@@ -42,6 +42,8 @@ public class MenuBarre extends JPanel {
 
         this.il = new IHMListener(f);
         
+        
+        
         //Création du JFileChooser
         chooser = new JFileChooser("./src/audio");
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
@@ -94,7 +96,15 @@ public class MenuBarre extends JPanel {
         this.circleToSquare.setVisible(false);
     }
 
-    public JButton getFileBut() {
+    public IHMListener getIl() {
+		return il;
+	}
+
+	public void setIl(IHMListener il) {
+		this.il = il;
+	}
+
+	public JButton getFileBut() {
         return this.file;
     }
 

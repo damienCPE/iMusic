@@ -3,6 +3,7 @@ package partie3.controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import partie1.controleur.Controlleur;
 import partie2.controleur.IHMListener;
 import partie2.vueGraphique.Fenetre;
 import partie3.vue.FenetreCS;
@@ -10,17 +11,43 @@ import partie3.vue.MenuBarreCS;
 
 public class IHMListenerCS extends IHMListener implements ActionListener {
 
+	protected IHMListener IhmListener;
     protected FenetreCS fcs;
     protected ControlleurCS ctrlrcs;
 
-    public IHMListenerCS(Fenetre f, FenetreCS fcs) {
+    public IHMListenerCS(Fenetre f, FenetreCS fcs, IHMListener il) {
         super(f);
         this.fcs = fcs;
-        this.ctrlrcs = new ControlleurCS();
+        this.IhmListener  = il;
+        this.ctrlrcs = new ControlleurCS(il.getCtrlr());
         this.ctrlr = ctrlrcs.getControlleur();
     }
 
-    @Override
+    public ControlleurCS getCtrlrcs() {
+		return ctrlrcs;
+	}
+
+	public void setCtrlrcs(ControlleurCS ctrlrcs) {
+		this.ctrlrcs = ctrlrcs;
+	}
+	
+	public IHMListener getIhmListener() {
+		return IhmListener;
+	}
+
+	public void setIhmListener(IHMListener ihmListener) {
+		IhmListener = ihmListener;
+	}
+
+	public FenetreCS getFcs() {
+		return fcs;
+	}
+
+	public void setFcs(FenetreCS fcs) {
+		this.fcs = fcs;
+	}
+
+	@Override
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
         String str;
