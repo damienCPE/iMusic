@@ -11,7 +11,7 @@ public class ControlleurCS extends ControlleurDeco {
 	public ControlleurCS() {
 		super();
 		this.controlleur = super.getControlleurDeco();
-		this.playercs = new PlayerCS(controlleur.getPlayer());
+		this.playerCS = new PlayerCS(controlleur.getPlayer());
 	}
 	
 	public ControlleurCS(ControlleurDeco ctrl) {
