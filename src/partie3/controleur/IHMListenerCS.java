@@ -17,7 +17,7 @@ public class IHMListenerCS extends IHMListener implements ActionListener {
         super(f);
         this.fcs = fcs;
         this.ctrlrcs = new ControlleurCS();
-        this.ctrlr = ctrlrcs.getControlleur();
+        this.setControlleur(ctrlrcs.getControlleur());
     }
 
     @Override

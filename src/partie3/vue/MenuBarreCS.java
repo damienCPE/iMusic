@@ -20,6 +20,9 @@ public class MenuBarreCS extends MenuBarre {
         //Creation listener
         this.ilcs = new IHMListenerCS(f, fcs);
         
+        //MAJ listener de la MenuBarre
+        this.mb.setIHMListener(this.ilcs.getIHMListener());
+        
         //Ajout du nouveau bouton
         this.serveur = new JButton("");
         this.serveur.setToolTipText("Telecharger un fichier du serveur");
