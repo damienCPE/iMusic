@@ -8,26 +8,26 @@ import partie2.vueGraphique.Fenetre;
 public class IHMListener implements ActionListener {
 
     protected Fenetre f;
-    protected Controlleur ctrlr;
+    protected ControlleurDeco ctrlrDeco;
 
     public IHMListener(Fenetre f) {
         super();
         this.f = f;
-        this.ctrlr = new Controlleur();
-        this.ctrlr.addObserver(this.f.getPetitsCarres().getPetitsCarresObserver());
+        this.ctrlrDeco = new ControlleurDeco();
+        this.ctrlrDeco.addObserver(this.f.getPetitsCarres().getPetitsCarresObserver());
     }
     
-    public Controlleur getCtrlr() {
-		return ctrlr;
+    public ControlleurDeco getctrlrDeco() {
+		return ctrlrDeco;
 	}
 
-	public void setCtrlr(Controlleur ctrlr) {
-		this.ctrlr = ctrlr;
+	public void setctrlrDeco(ControlleurDeco ctrlr) {
+		this.ctrlrDeco = ctrlr;
 	}
 	
-    public void setControlleur(Controlleur c){
+    /*public void setControlleur(Controlleur c){
         this.ctrlr = c;
-    }
+    }*/
 
     public IHMListener getIHMListener() {
         return this;
@@ -37,35 +37,35 @@ public class IHMListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String str;
         if (e.getSource() == f.getMenuBarre().getExitBut()) {
-            ctrlr.quitterPlayer();
+        	ctrlrDeco.quitterPlayer();
             System.exit(0);
         }
         if (e.getSource() == f.getMenuBarre().getFileBut()) {
             str = f.getMenuBarre().chargerFichier();
-            ctrlr.chargerFichier(str);
+            ctrlrDeco.chargerFichier(str);
         }
         if (e.getSource() == f.getMenuBarre().getGenererBut()) {
-            ctrlr.generer();
+        	ctrlrDeco.generer();
         }
         if (e.getSource() == f.getMenuBarre().getPreviousBut()) {
             // TODO
         }
         if (e.getSource() == f.getMenuBarre().getPlayBut()) {
-            if (ctrlr.DemarrerLecture() == 0) {
+            if (ctrlrDeco.DemarrerLecture() == 0) {
                 f.getMenuBarre().getPlayBut().setVisible(false);
                 f.getMenuBarre().getPauseBut().setVisible(true);
             }
         }
         if (e.getSource() == f.getMenuBarre().getPauseBut()) {
-            ctrlr.ArreterLecture();
+        	ctrlrDeco.ArreterLecture();
             f.getMenuBarre().getPauseBut().setVisible(false);
             f.getMenuBarre().getPlayBut().setVisible(true);
         }
         if (e.getSource() == f.getMenuBarre().getStopBut()) {
-            ctrlr.ArreterLecture();
+        	ctrlrDeco.ArreterLecture();
             f.getMenuBarre().getPauseBut().setVisible(false);
             f.getMenuBarre().getPlayBut().setVisible(true);
-            ctrlr.closeSeq();
+            ctrlrDeco.closeSeq();
         }
         if (e.getSource() == f.getMenuBarre().getSquareToCircle()) {
             f.getMenuBarre().getSquareToCircle().setVisible(false);

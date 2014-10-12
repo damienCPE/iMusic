@@ -1,19 +1,20 @@
 package partie3.controleur;
 
 import partie1.controleur.Controlleur;
+import partie2.controleur.ControlleurDeco;
 import partie3.model.PlayerCS;
 
-public class ControlleurCS extends Controlleur {
-	protected Controlleur controlleur;
+public class ControlleurCS extends ControlleurDeco {
+	protected ControlleurDeco controlleur;
 	protected PlayerCS playercs;
 	
 	public ControlleurCS() {
 		super();
-		this.controlleur = super.getControlleur();
+		this.controlleur = super.getControlleurDeco();
 		this.playercs = new PlayerCS(controlleur.getPlayer());
 	}
 	
-	public ControlleurCS(Controlleur ctrl) {
+	public ControlleurCS(ControlleurDeco ctrl) {
 		super();
 		this.controlleur = ctrl;
 		this.playercs = new PlayerCS(controlleur.getPlayer());
@@ -23,7 +24,7 @@ public class ControlleurCS extends Controlleur {
 		return controlleur;
 	}
 
-	public void setControlleur(Controlleur controlleur) {
+	public void setControlleur(ControlleurDeco controlleur) {
 		this.controlleur = controlleur;
 	}
 

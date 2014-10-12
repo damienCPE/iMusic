@@ -18,8 +18,8 @@ public class IHMListenerCS extends IHMListener implements ActionListener {
         super(f);
         this.fcs = fcs;
         this.IhmListener = il;
-        this.ctrlrcs = new ControlleurCS(this.IhmListener.getCtrlr());
-        this.ctrlr = ctrlrcs.getControlleur();
+        this.ctrlrcs = new ControlleurCS(this.IhmListener.getctrlrDeco());
+        this.ctrlrDeco = ctrlrcs.getControlleurDeco();
     }
 
     public ControlleurCS getCtrlrcs() {
