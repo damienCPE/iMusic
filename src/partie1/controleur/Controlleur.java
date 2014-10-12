@@ -38,7 +38,7 @@ public class Controlleur {
     public int DemarrerLecture() {
     	if(player.getMySequence() == null)
     		System.out.println("player.getMySequence() null");
-        if (player.getMySequence() != null) {
+        if (player.getMySequence() != null && player.getMySequence().getSequence() != null) {
             player.lire();
             return 0;
         } else {
@@ -48,7 +48,7 @@ public class Controlleur {
 
     // Met la lecture en pause
     public void ArreterLecture() {
-        if (player.getMySequence() != null) {
+        if (player.getMySequence() != null && player.getMySequence().getSequence() != null) {
             player.stop();
         }
     }
@@ -83,7 +83,7 @@ public class Controlleur {
     }
 
     public void closeSeq() {
-        if (this.player.getMySequence() != null && this.player.getMySequence().isOpen()) {
+        if (this.player.getMySequence() != null && player.getMySequence().getSequence() != null && this.player.getMySequence().isOpen()) {
             this.player.getMySequence().close();
             this.player.setMySequence(null);
         }

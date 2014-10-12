@@ -52,7 +52,10 @@ public class IHMListenerCS extends IHMListener implements ActionListener {
             //Affichage de la popup de selection de fichier
             str = this.fcs.getMenuBarre().chargerFichier();
             // Chargement du fichier
-            ctrlrcs.chargerFichierServeur(str);
+            if(ctrlrcs.chargerFichierServeur(str) == -1){
+            	System.out.println("Le fichier n'a pas ete charge, il y a peut etre un probleme avec le serveur");
+            	return;
+            }	
         }
     }
 }

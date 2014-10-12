@@ -36,10 +36,11 @@ public class MusiqueFichierServer extends Musique {
 		IService stub;
 		try {
 			Registry registry = LocateRegistry.getRegistry(1099);
-
 			this.stub = (IService) registry.lookup("MusicService");
+				
 		} catch (Exception e) {
-
+			System.out.println(e);
+			this.stub = null;
 		}
 
 	}
@@ -48,6 +49,10 @@ public class MusiqueFichierServer extends Musique {
 	public int creationPiste() {
 		try {
 			byte[] bytes = this.stub.getInformation(chemin);
+			if (stub == null)
+				System.out.println("stub null, pb serveur");
+			if(bytes == null)
+				System.out.println("bytes null, pb serveur");
 			System.out.println(chemin);
 			this.setSeq(MidiSystem.getSequence(new ByteArrayInputStream(bytes)));
 		} catch (Exception e) {

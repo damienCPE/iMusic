@@ -36,7 +36,7 @@ public class PlayerCS extends Player{
         if(this.player.getMySequence() == null)
         	System.out.println("creation sequence null");
         mus = this.player.getMusFac().creationMusique(TypeMusique.SERVER, fichier);
-        if (mus == null){
+        if (mus == null || ((MusiqueFichierServer)mus).getStub() == null){
         	return -1;
         }
             

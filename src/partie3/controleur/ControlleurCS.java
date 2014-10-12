@@ -37,7 +37,9 @@ public class ControlleurCS extends Controlleur {
 
 	// Charge le fichier midi passer en parametre
     public int chargerFichierServeur(String f) {
-        this.playercs.chargerFichierServeur(f);
+    	if(this.playercs.chargerFichierServeur(f) == -1)
+    		return -1;
+        
         this.controlleur.setPlayer(playercs.getPlayer());
         if(this.controlleur.getPlayer().getMySequence() == null)
         	System.out.println("controlleur.getPlayer().getMySequence null");
