@@ -156,4 +156,8 @@ public class MenuBarre extends JPanel {
         }
         return "";
     }
+
+    public void setIHMListener(IHMListener ihmListener) {
+        this.il = ihmListener;
+    }
 }

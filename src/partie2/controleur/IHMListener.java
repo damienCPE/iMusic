@@ -80,4 +80,8 @@ public class IHMListener implements ActionListener {
     public void setControlleur(Controlleur c){
         this.ctrlr = c;
     }
+
+    public IHMListener getIHMListener() {
+        return this;
+    }
 }
