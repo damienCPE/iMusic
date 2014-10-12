@@ -2,6 +2,8 @@ package partie3.controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+
 import partie2.controleur.IHMListener;
 import partie2.vueGraphique.Fenetre;
 import partie3.vue.FenetreCS;
@@ -53,7 +55,7 @@ public class IHMListenerCS extends IHMListener implements ActionListener {
             str = this.fcs.getMenuBarre().chargerFichier();
             // Chargement du fichier
             if(ctrlrcs.chargerFichierServeur(str) == -1){
-            	System.out.println("Le fichier n'a pas ete charge, il y a peut etre un probleme avec le serveur");
+            	JOptionPane.showMessageDialog(null,"il y a peut etre un probleme avec le serveur","Erreur cration musique",JOptionPane.WARNING_MESSAGE);
             	return;
             }	
         }
