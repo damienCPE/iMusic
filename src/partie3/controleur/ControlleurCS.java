@@ -10,14 +10,16 @@ public class ControlleurCS extends Controlleur {
 	public ControlleurCS() {
 		super();
 		this.controlleur = super.getControlleur();
-		this.playercs = new PlayerCS();
-		super.setPlayer(playercs.getPlayer());
+		this.playercs = new PlayerCS(controlleur.getPlayer());
 	}
 	
     // Charge le fichier midi passer en parametre
     public int chargerFichierServeur(String f) {
-        this.playercs.chargerFichier(f);
-        this.musList.makeEvent(this.playercs);
+        this.playercs.chargerFichierServeur(f);
+        this.controlleur.setPlayer(playercs.getPlayer());
+        if(this.controlleur.getPlayer().getMySequence() == null)
+        	System.out.println("controlleur.getPlayer().getMySequence null");
+        this.musList.makeEvent(this.playercs.getPlayer());
         return 0;
     }
 }

@@ -10,27 +10,44 @@ public class PlayerCS extends Player{
 	
 	protected Player player;
 
+	public Player getPlayer() {
+		return this.player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+
 	public PlayerCS() {
 		super();
-		player = super.getPlayer();
-	}
+        player = super.getPlayer();
+}
 	
-	public Player getPlayer(){
-	    return this.player;
+    public PlayerCS(Player player) {
+        super();
+        this.player = player;
 	}
 	
 	// Creer la piste audio a partir du fichier passe en parametre et la charge
     // dans le sequenceur
     public int chargerFichierServeur(String fichier) {
         Musique mus;
-        this.creerSequencer();
-        mus = this.musFac.creationMusique(TypeMusique.SERVER, fichier);
-        if (mus == null)
-            return -1;
+        this.player.creerSequencer();
+        if(this.player.getMySequence() == null)
+        	System.out.println("creation sequence null");
+        mus = this.player.getMusFac().creationMusique(TypeMusique.SERVER, fichier);
+        if (mus == null){
+        	return -1;
+        }
+            
         mus.creationPiste();
         try {
-            mySequencer.setSequence(mus.getSeq());
-            mySequencer.setTempoInBPM(120);
+        	System.out.println("creation sequence");
+        	if(this.player.getMySequence() == null)
+        		System.out.println("creation pite null");
+        	this.player.getMySequence().setSequence(mus.getSeq());
+        	this.player.getMySequence().setTempoInBPM(120);
+        	System.out.println("creation sequence fini");
             return 0;
         } catch (InvalidMidiDataException e) {
             e.printStackTrace();

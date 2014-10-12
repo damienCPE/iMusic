@@ -32,6 +32,7 @@ public class MusiqueFichierServer extends Musique {
 	public int creationPiste() {
 		try {
 			byte[] bytes = this.stub.getInformation(chemin);
+			System.out.println(chemin);
 			this.setSeq(MidiSystem.getSequence(new ByteArrayInputStream(bytes)));
 		} catch (Exception e) {
 			return -1;
