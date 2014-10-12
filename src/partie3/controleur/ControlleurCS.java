@@ -9,8 +9,9 @@ public class ControlleurCS extends Controlleur {
 	
 	public ControlleurCS() {
 		super();
-		this.controlleur = new Controlleur();
+		this.controlleur = super.getControlleur();
 		this.playercs = new PlayerCS();
+		super.setPlayer(playercs.getPlayer());
 	}
 	
     // Charge le fichier midi passer en parametre

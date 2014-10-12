@@ -12,7 +12,11 @@ public class PlayerCS extends Player{
 
 	public PlayerCS() {
 		super();
-		this.player = new Player();
+		player = super.getPlayer();
+	}
+	
+	public Player getPlayer(){
+	    return this.player;
 	}
 	
 	// Creer la piste audio a partir du fichier passe en parametre et la charge

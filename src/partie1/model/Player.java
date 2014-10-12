@@ -114,4 +114,8 @@ public class Player {
         // TODO Auto-generated method stub
         mySequencer.addControllerEventListener(musicListener, new int[] {127});
     }
+
+    protected Player getPlayer() {
+        return this;
+    }
 }
