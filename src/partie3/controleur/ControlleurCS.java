@@ -6,7 +6,7 @@ import partie3.model.PlayerCS;
 
 public class ControlleurCS extends ControlleurDeco {
 	protected ControlleurDeco controlleur;
-	protected PlayerCS playercs;
+	protected PlayerCS playerCS;
 	
 	public ControlleurCS() {
 		super();
@@ -17,7 +17,7 @@ public class ControlleurCS extends ControlleurDeco {
 	public ControlleurCS(ControlleurDeco ctrl) {
 		super();
 		this.controlleur = ctrl;
-		this.playercs = new PlayerCS(controlleur.getPlayer());
+		this.playerCS = new PlayerCS(controlleur.getPlayer());
 	}
 
     public Controlleur getControlleur() {
@@ -29,22 +29,22 @@ public class ControlleurCS extends ControlleurDeco {
 	}
 
 	public PlayerCS getPlayercs() {
-		return playercs;
+		return playerCS;
 	}
 
 	public void setPlayercs(PlayerCS playercs) {
-		this.playercs = playercs;
+		this.playerCS = playercs;
 	}
 
 	// Charge le fichier midi passer en parametre
     public int chargerFichierServeur(String f) {
-    	if(this.playercs.chargerFichierServeur(f) == -1)
+    	if(this.playerCS.chargerFichierServeur(f) == -1)
     		return -1;
         
-        this.controlleur.setPlayer(playercs.getPlayer());
+        this.controlleur.setPlayer(playerCS.getPlayer());
         if(this.controlleur.getPlayer().getMySequence() == null)
         	System.out.println("controlleur.getPlayer().getMySequence null");
-        this.musList.makeEvent(this.playercs.getPlayer());
+        this.musList.makeEvent(this.playerCS.getPlayer());
         return 0;
     }
 }
