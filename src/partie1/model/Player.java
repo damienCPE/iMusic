@@ -19,6 +19,8 @@ public class Player {
 
     // Getter de l'attribut mySequence
     public Sequencer getMySequence() {
+    	if(mySequencer == null)
+    		System.out.println("getSequencer null");
         return mySequencer;
     }
 
@@ -124,8 +126,8 @@ public class Player {
         // TODO Auto-generated method stub
     	if(musicListener == null)
     		System.out.println("musicListener null");
-    	if(mySequencer == null)
+    	if(this.mySequencer == null)
     		System.out.println("mySequencer null");
-        mySequencer.addControllerEventListener(musicListener, new int[] {127});
+        this.mySequencer.addControllerEventListener(musicListener, new int[] {127});
     }
 }

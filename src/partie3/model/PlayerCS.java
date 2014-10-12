@@ -10,6 +10,14 @@ public class PlayerCS extends Player{
 	
 	protected Player player;
 
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+
 	public PlayerCS(Player player) {
 		super();
 		this.player = player;
@@ -34,6 +42,7 @@ public class PlayerCS extends Player{
         		System.out.println("creation pite null");
         	this.player.getMySequence().setSequence(mus.getSeq());
         	this.player.getMySequence().setTempoInBPM(120);
+        	System.out.println("creation sequence fini");
             return 0;
         } catch (InvalidMidiDataException e) {
             e.printStackTrace();
