@@ -12,8 +12,24 @@ public class ConsoleListener {
         this.cons = new Console();
         this.ctrlr = new Controlleur();
     }
+    
+    public Console getCons() {
+		return cons;
+	}
 
-    // Lance le programme IMusic Console
+	public void setCons(Console cons) {
+		this.cons = cons;
+	}
+	
+	public Controlleur getCtrlr() {
+		return ctrlr;
+	}
+
+	public void setCtrlr(Controlleur ctrlr) {
+		this.ctrlr = ctrlr;
+	}
+
+	// Lance le programme IMusic Console
     public void lancerIMusic() {
         int act;
         

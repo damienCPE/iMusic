@@ -18,8 +18,24 @@ public class ControlleurCS extends Controlleur {
 		this.controlleur = ctrl;
 		this.playercs = new PlayerCS(controlleur.getPlayer());
 	}
-	
-    // Charge le fichier midi passer en parametre
+
+    public Controlleur getControlleur() {
+		return controlleur;
+	}
+
+	public void setControlleur(Controlleur controlleur) {
+		this.controlleur = controlleur;
+	}
+
+	public PlayerCS getPlayercs() {
+		return playercs;
+	}
+
+	public void setPlayercs(PlayerCS playercs) {
+		this.playercs = playercs;
+	}
+
+	// Charge le fichier midi passer en parametre
     public int chargerFichierServeur(String f) {
         this.playercs.chargerFichierServeur(f);
         this.controlleur.setPlayer(playercs.getPlayer());

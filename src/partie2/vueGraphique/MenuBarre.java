@@ -12,7 +12,11 @@ import partie2.controleur.IHMListener;
 
 public class MenuBarre extends JPanel {
 
-    protected JButton exit, file, generer, previous, play, pause, stop, next, squareToCircle, circleToSquare;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected JButton exit, file, generer, previous, play, pause, stop, next, squareToCircle, circleToSquare;
     protected IHMListener il;
     protected JFileChooser chooser;
 

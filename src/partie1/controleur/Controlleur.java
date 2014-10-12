@@ -19,7 +19,15 @@ public class Controlleur {
         this.player = player;
     }
 
-    // Controlleur
+    public MusicListener getMusList() {
+		return musList;
+	}
+
+	public void setMusList(MusicListener musList) {
+		this.musList = musList;
+	}
+
+	// Controlleur
     public Controlleur() {
         super();
         this.player = new Player();

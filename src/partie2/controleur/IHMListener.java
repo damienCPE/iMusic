@@ -2,9 +2,6 @@ package partie2.controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.ImageIcon;
-
 import partie1.controleur.Controlleur;
 import partie2.vueGraphique.Fenetre;
 
