@@ -8,13 +8,21 @@ import javax.sound.midi.Track;
 
 public class MusiqueFichier extends Musique {
 
-    String chemin;
+    protected String chemin;
     
     // Constructeur
     public MusiqueFichier(String s){
         this.chemin=s;
     }
     
+	public String getChemin() {
+		return chemin;
+	}
+	
+	public void setChemin(String chemin) {
+		this.chemin = chemin;
+	}
+
 	@Override
 	// Creer la piste audio
 	public int creationPiste() {

@@ -12,8 +12,24 @@ import partie1.model.Musique;
 import partie3.serveur.IService;
 
 public class MusiqueFichierServer extends Musique {
-	String chemin;
-	private IService stub;
+	protected String chemin;
+	protected IService stub;
+
+	public String getChemin() {
+		return chemin;
+	}
+
+	public void setChemin(String chemin) {
+		this.chemin = chemin;
+	}
+
+	public IService getStub() {
+		return stub;
+	}
+
+	public void setStub(IService stub) {
+		this.stub = stub;
+	}
 
 	public MusiqueFichierServer(String s) {
 		this.chemin = s;

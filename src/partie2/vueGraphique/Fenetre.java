@@ -1,13 +1,15 @@
 package partie2.vueGraphique;
 
-import java.util.Observer;
-
 import javax.swing.JFrame;
 
 public class Fenetre extends JFrame {
 
-    private MenuBarre mb;
-    private PetitsCarres pc;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private MenuBarre menuBarre;
+    private PetitsCarres petitsCarres;
 
     public Fenetre() {
         super();
@@ -18,21 +20,31 @@ public class Fenetre extends JFrame {
         this.setResizable(false);
         this.setLayout(null);
 
-        this.pc = new PetitsCarres();
-        this.mb = new MenuBarre(this);
-        this.add(mb);
-        mb.setBounds(0, 0, this.getWidth(), 120);
-        this.add(pc);
-        pc.setBounds(0, 120, this.getWidth(), 680);
+        this.petitsCarres = new PetitsCarres();
+        this.menuBarre = new MenuBarre(this);
+        this.add(menuBarre);
+        menuBarre.setBounds(0, 0, this.getWidth(), 120);
+        this.add(petitsCarres);
+        petitsCarres.setBounds(0, 120, this.getWidth(), 680);
 
         this.setVisible(true);
     }
-    
-    public MenuBarre getMenuBarre() {
-        return this.mb;
-    }
 
-    public PetitsCarres getPetitsCarres() {
-        return this.pc;
-    }
+	public MenuBarre getMenuBarre() {
+		return menuBarre;
+	}
+
+	public void setMenuBarre(MenuBarre mb) {
+		this.menuBarre = mb;
+	}
+
+	public PetitsCarres getPetitsCarres() {
+		return petitsCarres;
+	}
+
+	public void setPetitsCarres(PetitsCarres pc) {
+		this.petitsCarres = pc;
+	}
+    
+    
 }

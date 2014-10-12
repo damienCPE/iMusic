@@ -4,8 +4,8 @@ import partie1.vue.Console;
 
 public class ConsoleListener {
 
-    Console cons;
-    Controlleur ctrlr;
+    protected Console cons;
+    protected Controlleur ctrlr;
 
     // Constructeur
     public ConsoleListener() {

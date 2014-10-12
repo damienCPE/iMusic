@@ -17,16 +17,21 @@ public class IHMListener implements ActionListener {
         this.ctrlr.addObserver(this.f.getPetitsCarres().getPetitsCarresObserver());
     }
     
-
     public Controlleur getCtrlr() {
 		return ctrlr;
 	}
 
-
 	public void setCtrlr(Controlleur ctrlr) {
 		this.ctrlr = ctrlr;
 	}
+	
+    public void setControlleur(Controlleur c){
+        this.ctrlr = c;
+    }
 
+    public IHMListener getIHMListener() {
+        return this;
+    }
 
 	@Override
     public void actionPerformed(ActionEvent e) {
@@ -72,13 +77,5 @@ public class IHMListener implements ActionListener {
             f.getMenuBarre().getSquareToCircle().setVisible(true);
             f.getPetitsCarres().setFigType(true);
         }
-    }
-    
-    public void setControlleur(Controlleur c){
-        this.ctrlr = c;
-    }
-
-    public IHMListener getIHMListener() {
-        return this;
     }
 }

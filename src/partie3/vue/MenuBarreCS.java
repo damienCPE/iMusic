@@ -38,4 +38,30 @@ public class MenuBarreCS extends MenuBarre {
     public JButton getButServeur(){
         return this.serveur;
     }
+
+	public MenuBarre getMb() {
+		return mb;
+	}
+
+	public void setMb(MenuBarre mb) {
+		this.mb = mb;
+	}
+
+	public IHMListenerCS getIlcs() {
+		return ilcs;
+	}
+
+	public void setIlcs(IHMListenerCS ilcs) {
+		this.ilcs = ilcs;
+	}
+
+	public JButton getServeur() {
+		return serveur;
+	}
+
+	public void setServeur(JButton serveur) {
+		this.serveur = serveur;
+	}
+    
+    
 }
