@@ -65,4 +65,8 @@ public class IHMListener implements ActionListener {
             f.getPetitsCarres().setFigType(true);
         }
     }
+    
+    public void setControlleur(Controlleur c){
+        this.ctrlr = c;
+    }
 }

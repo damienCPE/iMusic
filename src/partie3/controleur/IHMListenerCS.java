@@ -17,6 +17,7 @@ public class IHMListenerCS extends IHMListener implements ActionListener {
         super(f);
         this.fcs = fcs;
         this.ctrlrcs = new ControlleurCS();
+        this.ctrlr = ctrlrcs.getControlleur();
     }
 
     @Override
@@ -24,7 +25,9 @@ public class IHMListenerCS extends IHMListener implements ActionListener {
         super.actionPerformed(e);
         String str;
         if (e.getSource() == this.fcs.getMenuBarreCS().getButServeur()) {
+            //Affichage de la popup de selection de fichier
             str = this.fcs.getMenuBarre().chargerFichier();
+            // Chargement du fichier
             ctrlrcs.chargerFichierServeur(str);
         }
     }

@@ -11,5 +11,7 @@ encoding//src/partie1/model/MusiqueGeneree.java=UTF-8
 encoding//src/partie1/model/Player.java=UTF-8
 encoding//src/partie2/controleur/IHMListener.java=UTF-8
 encoding//src/partie2/vueGraphique/MenuBarre.java=UTF-8
+encoding//src/partie3/controleur/ControlleurCS.java=UTF-8
+encoding//src/partie3/controleur/IHMListenerCS.java=UTF-8
 encoding//src/partie3/serveur/MainServeur.java=UTF-8
 encoding//src/partie3/serveur/MusicService.java=UTF-8

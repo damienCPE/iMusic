@@ -83,7 +83,7 @@ public class Controlleur {
         this.musList.addObserver(obs);
     }
 
-    protected Controlleur getControlleur() {
+    public Controlleur getControlleur() {
         return this;
     }
 }
